@@ -1,19 +1,17 @@
 {
-    "name": "electrovir",
-    "short_name": "electrovir",
+    "display": "standalone",
     "icons": [
         {
-            "src": "/android-chrome-192x192.png",
             "sizes": "192x192",
+            "src": "/android-chrome-192x192.png",
             "type": "image/png"
         },
         {
-            "src": "/android-chrome-256x256.png",
             "sizes": "256x256",
+            "src": "/android-chrome-256x256.png",
             "type": "image/png"
         }
     ],
-    "theme_color": "#33ccff",
-    "background_color": "#33ccff",
-    "display": "standalone"
+    "name": "electrovir",
+    "short_name": "electrovir"
 }
