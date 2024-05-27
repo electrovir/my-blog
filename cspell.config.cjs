@@ -5,9 +5,12 @@ module.exports = {
     ignorePaths: [
         ...baseConfig.ignorePaths,
         '.docusaurus/',
+        '*.svg',
+        'build/',
     ],
     words: [
         ...baseConfig.words,
         'clsx',
+        'infima',
     ],
 };

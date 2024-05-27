@@ -9,3 +9,5 @@
 **/ts.out/
 **/tsconfig.tsbuildinfo
 /Icon?
+
+build/

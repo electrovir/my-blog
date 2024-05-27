@@ -1,5 +1,5 @@
 {
-    "name": "electrovir",
+    "name": "@electrovir/my-blog",
     "version": "0.0.0",
     "private": true,
     "homepage": "https://github.com/electrovir/my-blog",
@@ -10,17 +10,16 @@
         "type": "git",
         "url": "https://github.com/electrovir/my-blog"
     },
-    "license": "(MIT or CC0 1.0)",
+    "license": "CC0 1.0 except for fonts",
     "author": {
         "name": "electrovir",
         "url": "https://github.com/electrovir"
     },
     "scripts": {
         "build": "docusaurus build",
-        "docusaurus": "docusaurus",
         "format": "virmator format",
         "start": "docusaurus start",
-        "test:all": "concurrently --colors --kill-others-on-fail -c auto --names types,spelling,format \"npm run test:types\" \"npm run test:spelling\" \"npm run test:format\"",
+        "test:all": "concurrently --colors --kill-others-on-fail -c auto --names types,spelling,format,build \"npm run test:types\" \"npm run test:spelling\" \"npm run test:format\" \"npm run build\"",
         "test:format": "virmator format check",
         "test:spelling": "virmator spellcheck",
         "test:types": "tsc --noEmit"

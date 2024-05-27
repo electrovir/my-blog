@@ -1,0 +1,94 @@
+@import url('fonts/lexend-definitions.css');
+@import url('fonts/inconsolata-definitions.css');
+
+/* You can override the default Infima variables here. */
+:root {
+    --ifm-color-primary: #0064ff;
+    --ifm-color-primary-dark: #0064ff;
+    --ifm-color-primary-darker: #0064ff;
+    --ifm-color-primary-darkest: #0064ff;
+    --ifm-color-primary-light: #0064ff;
+    --ifm-color-primary-lighter: #0064ff;
+    --ifm-color-primary-lightest: #0064ff;
+    --ifm-code-font-size: 95%;
+    --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+    --ifm-navbar-background-color: var(--ifm-background-color);
+    --ifm-background-color: white;
+    --ifm-font-family-base: 'Lexend', san-serif;
+    --ifm-heading-font-family: 'Lexend', san-serif;
+    --ifm-font-family-monospace: 'Inconsolata', monospace;
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+    --ifm-color-primary: #33ccff;
+    --ifm-color-primary-dark: #33ccff;
+    --ifm-color-primary-darker: #33ccff;
+    --ifm-color-primary-darkest: #33ccff;
+    --ifm-color-primary-light: #33ccff;
+    --ifm-color-primary-lighter: #33ccff;
+    --ifm-color-primary-lightest: #33ccff;
+    --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+    --ifm-background-color: black !important;
+    --ifm-code-background: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* hide the main page footer */
+footer.footer {
+    display: none !important;
+}
+
+.navbar-sidebar {
+    width: 300px;
+    max-width: 100%;
+}
+
+.navbar-sidebar__item {
+    max-width: 100%;
+}
+
+time {
+    opacity: 0.5;
+}
+
+code {
+    font-family: monospace;
+    font-size: 1.2em;
+}
+
+nav.navbar {
+    box-shadow: none;
+}
+
+.main-wrapper .container,
+.margin-vert--lg {
+    margin-top: 8px !important;
+    margin-bottom: 0 !important;
+}
+
+/* hide the archive title */
+header.hero--primary {
+    display: none;
+}
+
+.blog-post-page nav.pagination-nav {
+    display: none;
+}
+
+nav.pagination-nav {
+    margin-bottom: 16px;
+}
+
+[data-theme='dark'] .navbar-sidebar__backdrop {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.navbar__logo img {
+    filter: drop-shadow(0 1px 0 rgba(51, 204, 255, 0.8))
+        drop-shadow(0 -1px 0 rgba(51, 204, 255, 0.8)) drop-shadow(1px 0 0 rgba(51, 204, 255, 0.8))
+        drop-shadow(-1px 0 0 rgba(51, 204, 255, 0.8));
+}
+
+article footer {
+    margin-bottom: 16px;
+}
