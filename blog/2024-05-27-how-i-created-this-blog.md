@@ -1,6 +1,6 @@
 ---
 title: How I Created This Blog
-tags: [web, dev, guide]
+tags: [web, dev, guide, docusaurus]
 ---
 
 This blog is built using [Docusaurus](https://docusaurus.io) in [blog-only mode](https://docusaurus.io/docs/blog#blog-only-mode). Here's how I did it:

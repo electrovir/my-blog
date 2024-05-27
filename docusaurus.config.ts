@@ -5,7 +5,7 @@ import type {Config} from '@docusaurus/types';
 
 const config: Config = {
     title: ' ',
-    tagline: 'electrovir blog',
+    tagline: "electrovir's technical blog",
     favicon: 'img/favicon.ico',
     url: 'https://electrovir.com',
     baseUrl: '/',
@@ -21,7 +21,6 @@ const config: Config = {
         defaultLocale: 'en',
         locales: ['en'],
     },
-
     plugins: [
         [
             searchLocal,
@@ -31,20 +30,20 @@ const config: Config = {
             },
         ],
     ],
-
     presets: [
         [
             'classic',
             {
                 docs: false,
                 blog: {
+                    blogDescription: "electrovir's technical blog",
                     archiveBasePath: 'all',
                     blogSidebarCount: 0,
                     blogSidebarTitle: ' ',
                     routeBasePath: '/',
                     showLastUpdateTime: false,
                     showReadingTime: false,
-                    blogTitle: '',
+                    blogTitle: 'electrovir',
                     async processBlogPosts({blogPosts}) {
                         return blogPosts.map((blogPost): BlogPost => {
                             const fixedLink = blogPost.metadata.permalink
@@ -118,7 +117,6 @@ const config: Config = {
             },
         },
     ],
-
     themeConfig: {
         navbar: {
             title: 'electrovir',
@@ -137,6 +135,9 @@ const config: Config = {
                 },
             ],
         },
+        metadata: [
+            {name: 'title', content: 'My Custom Title'},
+        ],
         /** The footer is hidden with custom CSS. */
         footer: {},
         colorMode: {

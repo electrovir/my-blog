@@ -14,8 +14,8 @@
     --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
     --ifm-navbar-background-color: var(--ifm-background-color);
     --ifm-background-color: white;
-    --ifm-font-family-base: 'Lexend', san-serif;
-    --ifm-heading-font-family: 'Lexend', san-serif;
+    --ifm-font-family-base: 'Lexend', sans-serif;
+    --ifm-heading-font-family: 'Lexend', sans-serif;
     --ifm-font-family-monospace: 'Inconsolata', monospace;
 
     /* CSS vars for search. */
@@ -108,5 +108,5 @@ article footer {
 .navbarSearchContainer_node_modules-\@docusaurus-theme-classic-lib-theme-Navbar-Search-styles-module,
 .navbarSearchContainer_Bca1 {
     width: 150px;
-    opacity: 0.5;
+    opacity: 0.6;
 }
