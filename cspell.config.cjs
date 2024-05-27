@@ -11,6 +11,7 @@ module.exports = {
     words: [
         ...baseConfig.words,
         'clsx',
+        'cmfcmf',
         'infima',
     ],
 };

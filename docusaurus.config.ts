@@ -1,3 +1,4 @@
+import searchLocal from '@cmfcmf/docusaurus-search-local';
 import {BlogPost} from '@docusaurus/plugin-content-blog';
 import type * as Preset from '@docusaurus/preset-classic';
 import type {Config} from '@docusaurus/types';
@@ -20,6 +21,16 @@ const config: Config = {
         defaultLocale: 'en',
         locales: ['en'],
     },
+
+    plugins: [
+        [
+            searchLocal,
+            {
+                indexDocs: false,
+                indexPages: false,
+            },
+        ],
+    ],
 
     presets: [
         [
@@ -104,7 +115,7 @@ const config: Config = {
             attributes: {
                 name: 'msapplication-TileColor',
                 content: '#2d89ef',
-        },
+            },
         },
     ],
 

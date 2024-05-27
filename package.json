@@ -18,6 +18,7 @@
     "scripts": {
         "build": "docusaurus build",
         "format": "virmator format",
+        "preview": "npm run build && docusaurus serve",
         "start": "docusaurus start",
         "test:all": "concurrently --colors --kill-others-on-fail -c auto --names types,spelling,format,build \"npm run test:types\" \"npm run test:spelling\" \"npm run test:format\" \"npm run build\"",
         "test:format": "virmator format check",
@@ -25,6 +26,7 @@
         "test:types": "tsc --noEmit"
     },
     "dependencies": {
+        "@cmfcmf/docusaurus-search-local": "1.1.0",
         "@docusaurus/core": "3.3.2",
         "@docusaurus/preset-classic": "3.3.2",
         "@mdx-js/react": "^3.0.0",
@@ -47,5 +49,10 @@
         "prettier-plugin-sort-json": "^4.0.0",
         "prettier-plugin-toml": "^2.0.1",
         "virmator": "^11.5.2"
+    },
+    "overrides": {
+        "@cmfcmf/docusaurus-search-local": {
+            "@docusaurus/core": "^3.1.0"
+        }
     }
 }
