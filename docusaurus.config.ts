@@ -45,19 +45,23 @@ const config: Config = {
                     showReadingTime: false,
                     blogTitle: 'electrovir',
                     async processBlogPosts({blogPosts}) {
-                        return blogPosts.map((blogPost): BlogPost => {
-                            const fixedLink = blogPost.metadata.permalink
-                                .replace(/\//g, '-')
-                                .replace(/^\-/, '/');
+                        return blogPosts
+                            .map((blogPost): BlogPost => {
+                                const fixedLink = blogPost.metadata.permalink
+                                    .replace(/\//g, '-')
+                                    .replace(/^\-/, '/');
 
-                            return {
-                                ...blogPost,
-                                metadata: {
-                                    ...blogPost.metadata,
-                                    permalink: fixedLink,
-                                },
-                            };
-                        });
+                                return {
+                                    ...blogPost,
+                                    metadata: {
+                                        ...blogPost.metadata,
+                                        permalink: fixedLink,
+                                    },
+                                };
+                            })
+                            .sort((a, b) =>
+                                b.metadata.permalink.localeCompare(a.metadata.permalink),
+                            );
                     },
                 },
                 theme: {

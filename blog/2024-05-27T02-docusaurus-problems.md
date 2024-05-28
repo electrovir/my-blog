@@ -31,6 +31,8 @@ Day 1 of using Docusaurus and I'm already pretty disappointed in it. Maybe someo
 
     For example, there's no `index.html` page. I have to insert custom HTML with JavaScript properties in the Docusaurus config file.
 
+-   `docusaurus start` on-change reloads don't actually propagate changes to the website half the time
+
 ## Benefits
 
 -   syntax highlighting in code blocks
