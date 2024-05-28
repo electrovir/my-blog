@@ -1,6 +1,6 @@
 ---
 title: Use @link JSDoc comments
-tags: [web, dev, VS Code, TypeScript, Comments]
+tags: [web, dev, VS Code, TypeScript, Comments, Tip]
 ---
 
 Use `{@link VarName}` in JSDoc comments when referencing variables or types to get:
