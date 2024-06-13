@@ -9,11 +9,23 @@ This is intended to be a very basic high level overview of GraphQL, explained to
 
 For a full GraphQL overview, read GraphQL's own guide: https://graphql.org/learn
 
+## What sending a GraphQL request is like
+
+First of all, let's briefly overview what sending a GraphQL request to a GraphQL server is like:
+
+-   A GraphQL request is sent to a single endpoint.
+-   A GraphQL request includes a query string which instructs the GraphQL server what to do.
+-   A GraphQL query includes one or more "resolver" operations.
+    -   A "resolver" is like an individual endpoint.
+-   A GraphQL query specifies optional inputs to each resolver.
+-   A GraphQL query specifies exactly what data it wants _back_ from each resolver.
+-   A GraphQL response is a JSON object that either includes a `data` property or an `errors` property.
+
 ## What is GraphQL?
 
-GraphQL is a specification that describes:
+Now then, what is GraphQL itself? GraphQL is merely a specification that describes:
 
-1.  A schema language: used to define input and output types for "resolvers" (endpoints within the GraphQL system).
+1.  A schema language: used to define input and output types for resolvers.
 
     -   It looks similar to JSON:
 
@@ -30,7 +42,7 @@ GraphQL is a specification that describes:
 
         This schema describe a "query" resolver named `Users` which returns an array of the type `User`.
 
-2.  A query language: used for sending requests to a GraphQL server.
+2.  A query language: used for the query strings included in requests.
 
     -   It also looks similar to JSON:
 
@@ -48,7 +60,7 @@ GraphQL is a specification that describes:
 
 ## What does GraphQL give us?
 
-Besides the specifications mentioned above, all that GraphQL gives us is some helper utilities for:
+Besides the specifications mentioned above, all that GraphQL itself gives us is some helper utilities for:
 
 -   building and parsing schemas and queries
 -   building resolvers
@@ -57,7 +69,7 @@ For JavaScript, this is published on NPM: https://www.npmjs.com/package/graphql
 
 GraphQL's specification does not include a server or client implementation.
 
-## What you have to bring to GraphQL
+## What you have to bring to a GraphQL server
 
 To actually run a GraphQL server, you must implement the following:
 
@@ -75,10 +87,11 @@ A typical GraphQL setup looks like this:
 
 -   the backend
     -   a GraphQL schema file, `schema.graphql`
-    -   a GraphQL server implementation that is passed the GraphQL schema file (probably using one of the aforementioned [Yoga](https://www.npmjs.com/package/graphql-yoga) or [Apollo](https://www.npmjs.com/package/@apollo/server) packages)
+    -   all resolver implementations
+    -   a GraphQL server implementation that is passed the GraphQL schema file and the resolver implementations (probably using one of the aforementioned [Yoga](https://www.npmjs.com/package/graphql-yoga) or [Apollo](https://www.npmjs.com/package/@apollo/server) packages)
     -   a "context" object generated within the GraphQL server setup
         -   A GraphQL server's context object is used as an extra input to its resolvers.
-        -   For example, this is where you would parse request headers or cookies and determine if a request is from an authorized user or not.
+        -   For example, this is where you could parse request headers or cookies and determine if a request is from an authorized user or not.
     -   a single path listener, `/graphql`
 -   the frontend
     -   post requests sent to the backend GraphQL server's `/graphql` path
