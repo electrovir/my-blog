@@ -13,34 +13,44 @@ For a full GraphQL overview, read GraphQL's own guide: https://graphql.org/learn
 
 First of all, let's briefly overview what sending a GraphQL request to a GraphQL server is like:
 
--   A GraphQL request is sent to a single endpoint.
--   A GraphQL request includes a query string which instructs the GraphQL server what to do.
--   A GraphQL query includes one or more "resolver" operations.
+-   GraphQL requests are sent as JSON and responses are received as JSON.
+-   All GraphQL requests are sent to a single endpoint (`/graphql`).
+-   Each GraphQL request includes a `query` property with a string value that instructs the GraphQL server what to do.
+    -   Like this: `{"query": "GraphQL query goes here"}`
+-   A GraphQL query string includes one or more "resolver" operations.
     -   A "resolver" is like an individual endpoint.
--   A GraphQL query specifies optional inputs to each resolver.
--   A GraphQL query specifies exactly what data it wants _back_ from each resolver.
--   A GraphQL response is a JSON object that either includes a `data` property or an `errors` property.
+-   A GraphQL query string specifies optional inputs to each resolver.
+-   A GraphQL query string must select exactly which fields it wants to receive from each resolver operation.
+    -   Rather than receiving all fields like in a REST API endpoint, GraphQL requires you to specify the fields you want.
+    -   There is no way to select all fields (you can't do something like `SELECT *` from SQL).
+-   A GraphQL response's JSON object either has a `data` property or an `errors` property.
 
 ## What is GraphQL?
 
 Now then, what is GraphQL itself? GraphQL is merely a specification that describes:
 
-1.  A schema language: used to define input and output types for resolvers.
+1.  A schema language: used to define all input and output types for resolvers.
 
     -   It looks similar to JSON:
 
         ```graphql
         type Query {
             Users: [User]
+            Regions: [Region]
         }
 
         type User {
             id: ID!
             name: String
         }
+
+        type Region {
+            id: ID!
+            name: String
+        }
         ```
 
-        This schema describe a "query" resolver named `Users` which returns an array of the type `User`.
+        This schema describes two "query" resolvers named `Users` and `Regions` which each return an array of their respective type. You can also define "mutation" resolvers and "subscription" resolvers.
 
 2.  A query language: used for the query strings included in requests.
 
@@ -51,16 +61,19 @@ Now then, what is GraphQL itself? GraphQL is merely a specification that describ
             Users {
                 name
             }
+            Regions {
+                name
+            }
         }
         ```
 
-        This query triggers the `Users` "resolver" and requests each `name` field (only) from each `User` entry.
+        This query triggers both resolvers and selects only the `name` field from each.
 
 3.  How the defined schema and query languages are meant to be used and how they interact with each other in "resolvers".
 
 ## What does GraphQL give us?
 
-Besides the specifications mentioned above, all that GraphQL itself gives us is some helper utilities for:
+Besides the specifications mentioned above, all that GraphQL itself gives us are some helper utilities for:
 
 -   building and parsing schemas and queries
 -   building resolvers
@@ -108,22 +121,20 @@ A typical GraphQL setup looks like this:
 
 ## How a GraphQL request is handled
 
-1. a client or frontend sends a valid GraphQL query to the server
-2. the server receives a request
+1. a client or frontend sends a request, using GraphQL's query language in the body, to the server
+2. the server receives the request
 3. the server extracts and parses the query (and its optional variables)
 4. the server validates that the query matches the loaded GraphQL schema
 5. the server splits up the query by each resolver (multiple resolver calls can be included in a single request)
-6. the server passes each resolver query to its respective resolver callback
-7. the resolver callback (which _you_ need to define) executes and returns some output
+6. the server passes each resolver query to its respective resolver implementation
+7. the resolver implementation (which _you_ need to implement) executes and returns some output
 8. the server verifies that the resolver's output matches the loaded GraphQL schema
-9. the server masks the output against the user's requested selection set
+9. the server masks the resolver output with the user's requested selection set
 10. the server responds to the request with the masked and validated resolver output
 
-IMO, the distinguishing GraphQL features of this flow are:
+IMO, the distinguishing features for GraphQL in this flow are:
 
--   step 4: request validation against a schema
+-   **step 4**: request validation against a schema
     -   Rather than validating each request within each individual endpoint handler, a single source of truth, the GraphQL schema, is used.
--   step 9: masking the output
-    -   Rather than sending _all_ data for a given endpoint (or resolver) in a response, only the requested data is sent.
-
-As well as the fact that all requests use the unified GraphQL query language.
+-   **step 9**: masking the output
+    -   Rather than sending _all_ data for a given endpoint (or resolver) in a response, only the requested fields are selected and sent.
