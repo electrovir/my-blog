@@ -32,6 +32,9 @@ Day 1 of using Docusaurus and I'm already pretty disappointed in it. Maybe someo
     For example, there's no `index.html` page. I have to insert custom HTML with JavaScript properties in the Docusaurus config file.
 
 -   `docusaurus start` on-change reloads don't actually propagate changes to the website half the time
+-   it automatically transforms date strings from markdown file names into a URL with slashes between each date part (like `2024-05-27-my-post.md` gets turned into `/2024/05/27/my-post`), but each path part is not a valid page. (Meaning, `/2024/05/` does not exist.)
+
+    I worked around this by adding my own post processor that reverts the slashes back into dashes in my Docusaurus config [here](https://github.com/electrovir/my-blog/blob/b85d12f32225617a90fd4a54425828bbf9cb48fa/docusaurus.config.ts#L37-L52).
 
 ## Benefits
 
