@@ -13,5 +13,6 @@ module.exports = {
         'clsx',
         'cmfcmf',
         'infima',
+        'kanban',
     ],
 };

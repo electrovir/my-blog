@@ -1,6 +1,6 @@
 ---
 title: ESLint Violations as Warnings in VS Code
-tags: [web, dev, VS Code, TypeScript, Comments, ESLint, Tip]
+tags: [web, dev, VS Code, TypeScript, ESLint, tip]
 ---
 
 If you're using TypeScript and ESLint in VS Code, wip files or legacy files can quickly explode into a sea of red squiggles, making it hard to know where to start or track what's going on.

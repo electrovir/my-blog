@@ -1,6 +1,6 @@
 ---
 title: Docusaurus Problems
-tags: [web, dev, docusaurus]
+tags: [web, dev, Docusaurus]
 ---
 
 Day 1 of using Docusaurus and I'm already pretty disappointed in it. Maybe someone knows how to solve these problems, but online searches and Docusaurus's own documentation has yet to turn up solutions.
