@@ -8,6 +8,8 @@ A collection of commands for use in PostgreSQL. Many will be applicable to any S
 
 If you're an experienced database dev, these will probably be stupidly obvious to you.
 
+<!-- truncate -->
+
 -   list columns of a table
 
     ```sql
