@@ -40,7 +40,7 @@ Make sure to use this in conjunction with [`@open-wc/testing`](https://www.npmjs
 -   maintenance seems to be very sparse, none of my bug reports or pull requests have received any attention from collaborators
 -   it's caused dependency issues for me in the past with previous versions of [`lit`](https://www.npmjs.com/package/lit)
 -   the CLI has some very unnecessary opinions, like not letting you call `--watch` from within another script
--   debugging in a real browser window is cumbersome
+-   keeping open the browser for debugging is surprisingly cumbersome
 
 ### Mocha
 
@@ -77,10 +77,11 @@ I do not like Jest. I've tried using it before several times and it's always bee
 #### Pros
 
 -   includes its own types
+-   uses `describe`
 
 #### Cons
 
--   uses `test` instead of `it`, still uses `describe`
+-   uses `test` instead of `it`
 -   `describe` and `test` are global
 -   it is targeted towards React
 -   requires tons of configuration
@@ -104,7 +105,7 @@ I coincidentally came across this package recently. Based on what I've listed be
 
 | [npm](https://www.npmjs.com/package/ava) | [website](https://avajs.dev/) |
 | ---------------------------------------- | ----------------------------- |
-| **Environment**                          | Frontend (browser)            |
+| **Environment**                          | Backend (Node.js)             |
 
 #### Pros
 
@@ -133,9 +134,9 @@ Node.js actually has its own built-in test runner. I've yet to use it but I'm ve
 
 Uses Vite for in-browser testing. I haven't used this but I expect it's at least decent since I love using Vite.
 
-| `'node:test'`   | [website](https://nodejs.org/api/test.html) |
-| --------------- | ------------------------------------------- |
-| **Environment** | Backend (Node.js)                           |
+| [npm](https://www.npmjs.com/package/vitest) | [website](https://vitest.dev) |
+| ------------------------------------------- | ----------------------------- |
+| **Environment**                             | Frontend (browser)            |
 
 #### Pros
 
@@ -150,7 +151,7 @@ Uses Vite for in-browser testing. I haven't used this but I expect it's at least
 
 ## E2E test runners
 
-Intended for end-to-end testing, these are packages that load up your test files, execute them within a backend (Node.js) environment, open up a browser and hit a given URL, and require other processes to actually serve up something (a frontend server, a backend, etc).
+Intended for end-to-end testing, these are packages that load up your test files, execute them within a backend (Node.js) environment, open up a browser and hit a given URL, and require other processes to actually serve up something (a frontend server, a backend, etc). Since these run within a Node.js context, you can also setup tests by interacting with your backend directly.
 
 ### Playwright
 
@@ -162,14 +163,16 @@ Playwright is my go-to choice for E2E testing. It supports the largest range of 
 
 #### Pros
 
--   enables testing in Chrome (Chromium), Safari (WebKit), and Firefox
+-   allows testing in Chrome (Chromium), Safari (WebKit), and Firefox
 -   supports Linux, macOS, and Windows
--   uses `test`, not `describe` or `it`
--   `test` is not a global
+-   uses `suite` and `test`, not `describe` or `it`
+-   `test` and `suite` are not globals
 
 #### Cons
 
 -   it's possible to run code in the browser itself but Playwright actively discourages doing so
+-   you have to reinstall browsers with a separate command every time there's an update to them
+-   you have to install system level dependencies in CI environments
 
 ### Cypress
 
@@ -192,7 +195,7 @@ Playwright is my go-to choice for E2E testing. It supports the largest range of 
 
 ### Puppeteer
 
-Very similar to Playwright, but much more limited.
+Very similar to Playwright, but much more limited; almost entirely focused on testing Chrome.
 
 | [npm](https://www.npmjs.com/package/puppeteer) | [website](https://pptr.dev)                      |
 | ---------------------------------------------- | ------------------------------------------------ |
@@ -204,7 +207,7 @@ Very similar to Playwright, but much more limited.
 
 #### Cons
 
--   only supports Chrome, with experimental Firefox support
+-   focused on Chrome, with experimental Firefox support
 
 ## Code coverage
 
@@ -277,9 +280,9 @@ These packages simply export a bunch of functions for asserting that test condit
 
 I like using Chai, but only its `assert` export. Its `expect` export, while actually being easier to read, has misleading names and bad TypeScript typing.
 
-| [npm](https://www.npmjs.com/package/chai) | [website](https://www.chaijs.com) |
-| ----------------------------------------- | --------------------------------- |
-| **Environment**                           | Backend (Node.js)                 |
+| [npm](https://www.npmjs.com/package/chai) | [website](https://www.chaijs.com)         |
+| ----------------------------------------- | ----------------------------------------- |
+| **Environment**                           | Backend (Node.js) and Frontend? (browser) |
 
 #### Pros
 
@@ -287,8 +290,8 @@ I like using Chai, but only its `assert` export. Its `expect` export, while actu
 
 #### Cons
 
--   claims browser support but uses CommonJS still (so it won't run in a browser without a separate build pipeline, like Mocha)
--   `expect` has misleading method names and TypeScript types
+-   Claims browser support but used CommonJS (so it won't run in a browser without a separate build pipeline, like Mocha). The newer versions claim to be ESM, so this might no longer be an issue.
+-   `expect` has unclear method names and TypeScript types
 -   does not support asserting thrown errors
 -   assertions are not type guards
 
@@ -316,6 +319,14 @@ Jest ([mentioned earlier as a test runner](#jest)) also includes its own asserti
 | [npm](https://www.npmjs.com/package/jest) | [website](https://jestjs.io) |
 | ----------------------------------------- | ---------------------------- |
 | **Environment**                           | Backend (Node.js)            |
+
+### Vitest
+
+Vitest ([mentioned earlier as a test runner](#vitest)) also includes assertions. They match Chai's.
+
+| [npm](https://www.npmjs.com/package/vitest) | [website](https://vitest.dev) |
+| ------------------------------------------- | ----------------------------- |
+| **Environment**                             | Frontend (browser)            |
 
 ### Node.js built-in assert
 
@@ -375,9 +386,9 @@ These are more packages that I wrote to make testing a bit easier, with some env
 
 This is a suite of packages that are each specific to a specific environment or framework. I don't use anything that they have packages for so I've never tried it. (Also, I can't figure out how to actually use it.)
 
-| [npm](https://www.npmjs.com/org/testing-library) | [website](https://electrovir.github.io/run-time-assertions/) |
-| ------------------------------------------------ | ------------------------------------------------------------ |
-| **Environment**                                  | Frontend (browser)                                           |
+| [npm](https://www.npmjs.com/org/testing-library) | [website](https://testing-library.com) |
+| ------------------------------------------------ | -------------------------------------- |
+| **Environment**                                  | Frontend (browser)                     |
 
 #### Cons
 
