@@ -110,3 +110,19 @@ article footer {
     width: 150px;
     opacity: 0.6;
 }
+
+/* Prevent unnecessary wrapping on the "history" page */
+main > section > div.container > div.row > div.col.col--4.margin-vert--lg {
+    max-width: unset;
+    flex: unset;
+}
+
+/* Show "history" page from newest to oldest. */
+main > section > div.container > div.row > div.col.col--4.margin-vert--lg > ul {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.title_node_modules-\@docusaurus-theme-classic-lib-theme-BlogPostItem-Header-Title-styles-module {
+    font-size: 2.2em !important;
+}

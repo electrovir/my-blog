@@ -40,6 +40,7 @@ const config: Config = {
                     archiveBasePath: 'all',
                     blogSidebarCount: 0,
                     blogSidebarTitle: ' ',
+                    sortPosts: 'descending',
                     routeBasePath: '/',
                     showLastUpdateTime: false,
                     showReadingTime: false,
@@ -130,8 +131,8 @@ const config: Config = {
             },
             hideOnScroll: false,
             items: [
-                {to: '/all', label: 'all posts', position: 'left'},
                 {to: '/tags', label: 'tags', position: 'left'},
+                {to: '/all', label: 'history', position: 'left'},
                 {
                     href: 'https://github.com/electrovir/my-blog',
                     label: 'GitHub',
