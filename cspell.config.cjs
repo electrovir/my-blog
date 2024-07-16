@@ -14,5 +14,8 @@ module.exports = {
         'cmfcmf',
         'infima',
         'kanban',
+        'nerfed',
+        'nerfing',
+        'webrtc',
     ],
 };

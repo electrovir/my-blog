@@ -67,7 +67,7 @@ With just `Pick<User, 'address'>`, we would've needed to fill in both `streetAdd
 
 ### Clashing sub-keys
 
-The most obviuos limitation of `PickDeep` is clashing sub keys. See the following example:
+The most obvious limitation of `PickDeep` is clashing sub keys. See the following example:
 
 ```typescript
 import {PickDeep} from '@augment-vir/common';
@@ -104,13 +104,13 @@ In the above example ([playground link here](https://www.typescriptlang.org/play
 
 ### TypeScript's recursion nerfing
 
-However, the real killer of `PickDeep` is TypeScript itself. Since my creation of `PickDeep` at the beginning of 2023, the TypeScript type checker has been repeatedly nerfed in its absility to handle recursive types. The modern `PickDeep` (which still works sometimes) has accordingly been nerfed to the point where it no longer supports auto completion in the keys array. Despite that, TypeScript _still_ frequently panics when using `PickDeep` with "type instantiation is excessively deep and possibly infinite" errors, sometimes even on objects that are obviously not possibly infinite (or even very deep).
+However, the real killer of `PickDeep` is TypeScript itself. Since my creation of `PickDeep` at the beginning of 2023, the TypeScript type checker has been repeatedly nerfed in its ability to handle recursive types. The modern `PickDeep` (which still works sometimes) has accordingly been nerfed to the point where it no longer supports auto completion in the keys array. Despite that, TypeScript _still_ frequently panics when using `PickDeep` with "type instantiation is excessively deep and possibly infinite" errors, sometimes even on objects that are obviously not possibly infinite (or even very deep).
 
 ## An alternative: `PickSelection`
 
-Due to TypeScript's arbtirary and unpredicable "excessively deep" errors, I sought out a new means entirely of accompishing a deeply picked utility type. Thus was born `PickSelection`.
+Due to TypeScript's arbitrary and unpredictable "excessively deep" errors, I sought out a new means entirely of accomplishing a deeply picked utility type. Thus was born `PickSelection`.
 
-The goal of `PickSelection` is the same: allow picking arbtirary sub keys of a nested object. However, the method is totally different. Rather than accepting a list of key strings (as `PickDeep` does), it accepts a selection set. In other words, it accepts an object of booleans with keys and nestings matching exactly (with `Partial`) the original type that's being picked from. Below is an example that shows how to use `PickSelection` for all the previous `PickDeep` examples.
+The goal of `PickSelection` is the same: allow picking arbitrary sub keys of a nested object. However, the method is totally different. Rather than accepting a list of key strings (as `PickDeep` does), it accepts a selection set. In other words, it accepts an object of booleans with keys and nestings matching exactly (with `Partial`) the original type that's being picked from. Below is an example that shows how to use `PickSelection` for all the previous `PickDeep` examples.
 
 ```typescript
 import {PickSelection} from '@augment-vir/common';
