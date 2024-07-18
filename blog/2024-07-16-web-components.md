@@ -9,7 +9,7 @@ Web Components are reusable, _native_ chunks of shared HTML, CSS, and JavaScript
 
 ## Define a custom element class
 
-In order to use a custom element with the native browser APIs, you _must_ define a class that extends `HTMLElement`. How exactly you do this will depend on whether you're using a third party library or not to help with element definition (I recommend using [`element-vir`](https://www.npmjs.com/package/element-vir), my own package, or [`lit`](https://lit.dev)).
+In order to use a custom element with the native browser APIs, you _must_ define a class that extends `HTMLElement`. How exactly you do this will depend on whether you're using a third party library or not to help with element definition (I recommend using [`element-vir`](https://www.npmjs.com/package/element-vir), my own package, or [Lit](https://lit.dev)).
 
 <details>
   <summary>Code examples</summary>
@@ -21,10 +21,10 @@ In order to use a custom element with the native browser APIs, you _must_ define
     class MyElement extends HTMLElement {}
     ```
 
--   In [`lit`](https://lit.dev), extend `LitElement` instead of `HTMLElement` (though `LitElement` itself extends `HTMLElement`):
+-   In [Lit](https://lit.dev), extend `LitElement` instead of `HTMLElement` (though `LitElement` itself extends `HTMLElement`):
 
     ```typescript
-    // using lit
+    // using Lit
     import {LitElement} from 'lit';
     import {customElement} from 'lit/decorators';
 
@@ -66,10 +66,10 @@ Note that tag names have [specific requirements](https://developer.mozilla.org/e
     window.customElements.define('my-element', MyElement);
     ```
 
--   In [`lit`](https://lit.dev), the tag name has already been defined and the element has already been registered with the `customElement` decorator! This decorator calls `window.customElements.define()` internally.
+-   In [Lit](https://lit.dev), the tag name has already been defined and the element has already been registered with the `customElement` decorator! This decorator calls `window.customElements.define()` internally.
 
     ```typescript
-    // using lit
+    // using Lit
     import {LitElement} from 'lit';
     import {customElement} from 'lit/decorators';
 
@@ -148,9 +148,9 @@ Using the connection lifecycle hook is preferred over using the constructor beca
 <details>
  <summary>Code examples</summary>
 
--   In [`lit`](https://lit.dev) and native JavaScript, you hook into this with the `connectedCallback()` method:
+-   In [Lit](https://lit.dev) and native JavaScript, you hook into this with the `connectedCallback()` method:
     ```typescript
-    // using native APIs or lit
+    // using native APIs or Lit
     class MyElement extends HTMLElement {
         connectedCallback() {
             // do init stuff here
@@ -183,9 +183,9 @@ An element is "disconnected" whenever it is removed from the DOM, the exact oppo
 <details>
  <summary>Code examples</summary>
 
--   In [`lit`](https://lit.dev) and native JavaScript, you hook into this with the `disconnectedCallback()` method:
+-   In [Lit](https://lit.dev) and native JavaScript, you hook into this with the `disconnectedCallback()` method:
     ```typescript
-    // using native APIs or lit
+    // using native APIs or Lit
     class MyElement extends HTMLElement {
         disconnectedCallback() {
             // do cleanup stuff here
@@ -213,7 +213,7 @@ An element is "disconnected" whenever it is removed from the DOM, the exact oppo
 
 ## Rendering custom HTML
 
-The actual rendering of your custom element's HTML is the most cumbersome part of the web component process. Hence, there are many third party libraries that abstract and streamline it (like the already mentioned [`element-vir`](https://www.npmjs.com/package/element-vir) and [`lit`](https://lit.dev) packages).
+The actual rendering of your custom element's HTML is the most cumbersome part of the web component process. Hence, there are many third party libraries that abstract and streamline it (like the already mentioned [`element-vir`](https://www.npmjs.com/package/element-vir) and [Lit](https://lit.dev) packages).
 
 <details>
  <summary>Code examples</summary>
@@ -222,10 +222,10 @@ The actual rendering of your custom element's HTML is the most cumbersome part o
 
     I _do not recommend_ using this method. It will be very cumbersome and error prone.
 
--   In [`lit`](https://lit.dev) you render an element with the `render` method which can return a declarative HTML template string. This is _way_ more friendly than the native approach. This `render` method is called by `lit` whenever an element updates.
+-   In [Lit](https://lit.dev) you render an element with the `render` method which can return a declarative HTML template string. This is _way_ more friendly than the native approach. This `render` method is called by Lit whenever an element updates.
 
     ```typescript
-    // using lit
+    // using Lit
     import {LitElement, html} from 'lit';
     import {customElement} from 'lit/decorators';
 
@@ -239,7 +239,7 @@ The actual rendering of your custom element's HTML is the most cumbersome part o
     }
     ```
 
--   In [`element-vir`](https://www.npmjs.com/package/element-vir), you render an element with the `renderCallback` method. Just like in `lit`, this method returns an HTML template string and is called whenever an element updates.
+-   In [`element-vir`](https://www.npmjs.com/package/element-vir), you render an element with the `renderCallback` method. Just like in Lit, this method returns an HTML template string and is called whenever an element updates.
 
     ```typescript
     // using element-vir
@@ -266,5 +266,5 @@ The technical specifics of how to assign inputs to elements and handle outputs f
 
 Each package has their own docs on the matter:
 
--   See `lit`'s docs for guidance on [attribute expressions](https://lit.dev/docs/templates/expressions/#attribute-expressions) or [property expressions](https://lit.dev/docs/templates/expressions/#property-expressions) (inputs) and [events](https://lit.dev/docs/components/events) (outputs).
+-   See Lit's docs for guidance on [attribute expressions](https://lit.dev/docs/templates/expressions/#attribute-expressions) or [property expressions](https://lit.dev/docs/templates/expressions/#property-expressions) (inputs) and [events](https://lit.dev/docs/components/events) (outputs).
 -   See `element-vir`'s README for guidance on [inputs](https://www.npmjs.com/package/element-vir#defining-and-using-inputs) and [events](https://www.npmjs.com/package/element-vir#element-events-outputs) (outputs).
