@@ -49,7 +49,7 @@ const MyGreeting = defineElement<{}>()({
         return html`
             You've clicked ${state.clickCount} times!
             <br />
-            <button ${listen('click', () => updateState({clickCount: state.clickCount++}))}>
+            <button ${listen('click', () => updateState({clickCount: state.clickCount + 1}))}>
                 Click Me
             </button>
         `;
