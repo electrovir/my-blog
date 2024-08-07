@@ -1,15 +1,15 @@
 ---
-title: The Beauty of the Current JavaScript Testing Ecosystem
+title: Unified JavaScript Testing
 tags: [Node.js, dev, web, testing]
 ---
 
-The JavaScript testing scene is better than ever! From actual-browser based testing with web-test-runner to Node.js's built-in test runner to Chai working in both environments now, there's a lot to talk about how portable unit tests are between the two and also my new package, `@augment-vir/test`, which unites the two environments completely.
+Node.js now has a built-in test runner, which I've now tried, and it's fantastic! However, it can't be used for frontend testing, or browser testing, obviously. While web-test-runner is the best (imo) test runner for frontend tests, having different runners requires you to learn different libraries and use different imports for each even when doing dead simple environment-agnostic unit tests. In this post I'll talk about how I've unified the experience, and the path that lead to being able to do that.
 
 <!-- truncate -->
 
 ## Node.js built-in test runner
 
-Node.js now has a built-in test runner, which is a dream to use. It's fast, it doesn't require a huge config, and `tsx` makes it a breeze to use with TypeScript. Let's take a look.
+First of all, I'll discuss how Node.js now has a built-in test runner, which is a dream to use. It doesn't require a huge config, and `tsx` makes it a breeze to use with TypeScript. I much prefer this over Mocha (which I used to use for backend testing).
 
 ### Any suite functions you like
 
