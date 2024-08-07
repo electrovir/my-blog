@@ -1,6 +1,6 @@
 ---
 title: __filename and __dirname in ESM
-tags: [node, dev]
+tags: [Node.js, dev]
 ---
 
 ESM does not populate the [`__filename`](https://nodejs.org/api/modules.html#__filename) and [`__dirname`](https://nodejs.org/api/modules.html#__dirname) variables frequently used in CommonJS. This post shows what to do instead.
