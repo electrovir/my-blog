@@ -1,6 +1,6 @@
 ---
 title: The Beauty of the Current JavaScript Testing Ecosystem
-tags: [Node.js, dev, web]
+tags: [Node.js, dev, web, testing]
 ---
 
 The JavaScript testing scene is better than ever! From actual-browser based testing with web-test-runner to Node.js's built-in test runner to Chai working in both environments now, there's a lot to talk about how portable unit tests are between the two and also my new package, `@augment-vir/test`, which unites the two environments completely.
