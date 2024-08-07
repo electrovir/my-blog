@@ -141,4 +141,13 @@ This allows running tests in both environments at the same time for maximum test
 -   `tsx --test 'src/**/*.test.ts'`
 -   `web-test-runner --config configs/web-test-runner.mjs`
 
-(Or use `virmator test node` or `virmator test web` if you're using [virmator](https://www.npmjs.com/package/virmator), as I am.)
+Or, you can use virmator as shown below.
+
+## Unified test runner
+
+The last piece of the puzzle is unifying the unit test runner. This can be done with my [virmator](https://www.npmjs.com/package/virmator) package. This package will use Node.js's built-in test runner for backend tests and web-test-runner for frontend tests, with default configurations for a pleasant experience. It's very simple:
+
+-   `virmator test node`
+-   `virmator test web`
+
+Each command automatically sets useful flags, configs, file globs, and allows passing in an individual file path for narrowing test focus.
