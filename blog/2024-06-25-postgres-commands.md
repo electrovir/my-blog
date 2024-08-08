@@ -33,3 +33,13 @@ If you're an experienced database dev, these will probably be stupidly obvious t
     WHERE table_schema = 'public'
     ORDER BY 3 DESC;
     ```
+
+-   count distinct column values
+
+    ```sql
+    SELECT
+        "<column-name>",
+        COUNT(*)
+    FROM "<table-name>"
+    GROUP BY "<column-name>";
+    ```

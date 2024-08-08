@@ -15,6 +15,7 @@ module.exports = {
         'infima',
         'kanban',
         'nerfed',
+        'deno',
         'nerfing',
         'webrtc',
     ],
