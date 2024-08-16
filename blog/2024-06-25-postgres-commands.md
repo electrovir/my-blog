@@ -43,3 +43,8 @@ If you're an experienced database dev, these will probably be stupidly obvious t
     FROM "<table-name>"
     GROUP BY "<column-name>";
     ```
+
+-   update multiple rows
+    ```sql
+    UPDATE "<table-name>" SET "<column-name>" = <value> WHERE "<id-column-name>" in (<id>,<id>,<etc>);
+    ```

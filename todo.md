@@ -1,0 +1,1 @@
+-   make header transparent in the middle

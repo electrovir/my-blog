@@ -70,6 +70,52 @@ code {
 
 nav.navbar {
     box-shadow: none;
+    background: none;
+    padding: 0;
+}
+
+.navbar__inner > .navbar__items > *:first-child {
+    padding-left: var(--ifm-navbar-padding-horizontal);
+    left: 0;
+}
+.navbar__inner > .navbar__items > *:last-child {
+    padding-right: var(--ifm-navbar-padding-horizontal);
+    right: 0;
+}
+
+.navbar__toggle {
+    margin: 0;
+    padding-right: 0.5rem;
+}
+
+.navbar__items > * {
+    background: var(--ifm-navbar-background-color);
+    height: 100% !important;
+}
+
+.navbar__items > .navbar__link,
+.navbar__items--right > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar__toggle {
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar__items--right > div:last-child {
+    padding-left: var(--ifm-navbar-padding-horizontal);
+}
+
+.navbar__items--right > div:first-of-type > button {
+    height: 32px;
+}
+
+.navbar__brand {
+    margin: 0;
+    padding-right: 1rem;
 }
 
 .main-wrapper .container,
@@ -103,6 +149,10 @@ nav.pagination-nav {
 
 article footer {
     margin-bottom: 16px;
+}
+
+.dsla-search-wrapper {
+    width: 150px;
 }
 
 /* Prevent unnecessary wrapping on the "history" page */
