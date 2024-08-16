@@ -74,7 +74,8 @@ nav.navbar {
     padding: 0;
 }
 
-.navbar__inner > .navbar__items > *:first-child {
+.navbar__inner > .navbar__items > *:first-child,
+.navbar__brand {
     padding-left: var(--ifm-navbar-padding-horizontal);
     left: 0;
 }
@@ -85,7 +86,6 @@ nav.navbar {
 
 .navbar__toggle {
     margin: 0;
-    padding-right: 0.5rem;
 }
 
 .navbar__items > * {
