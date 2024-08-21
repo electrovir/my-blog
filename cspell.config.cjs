@@ -16,9 +16,12 @@ module.exports = {
         'dsla',
         'infima',
         'kanban',
+        'libvorbis',
+        'libvpx',
         'nerfed',
         'nerfing',
         'prismock',
+        'webm',
         'webrtc',
     ],
 };

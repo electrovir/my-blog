@@ -77,9 +77,9 @@ describe(myFunction.name, () => {
             user: [{id: 1, role: 'admin', name: 'test user'}],
         });
 
-        const databaseBefore = prismaClient.getData();
+        const databaseBefore = {...prismaClient.getData()};
         await myFunction(prismaClient);
-        const databaseAfter = prismaClient.getData();
+        const databaseAfter = {...prismaClient.getData()};
 
         const diff = diffObjects(databaseBefore, databaseAfter);
 
