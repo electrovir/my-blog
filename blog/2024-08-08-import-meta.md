@@ -7,7 +7,7 @@ If you look at the [`import.meta` docs on MDN](https://developer.mozilla.org/en-
 
 > The spec doesn't specify any properties to be defined on it, but hosts usually implement the following properties: [url, resolve]
 
-So what is actually in there? MDN is correct in saying `url` and `resolved` are usually (always) implemented, but each run-time also sticks some other stuff in there. From my own testing, below are the values that exist for each major runtime.
+So what is actually in there? MDN is correct in saying `url` and `resolve` are usually (always) implemented, but each run-time also sticks some other stuff in there. From my own testing, below are the values that exist for each major runtime.
 
 <!-- truncate -->
 
