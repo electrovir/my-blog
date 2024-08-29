@@ -20,6 +20,7 @@ module.exports = {
         'libvpx',
         'nerfed',
         'nerfing',
+        'precmd',
         'prismock',
         'webm',
         'webrtc',

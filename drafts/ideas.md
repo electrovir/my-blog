@@ -1,7 +1,6 @@
 -   Managing several interconnected open source projects
 -   Your philosophy for "How to excel as a technical contributor"
 -   how to debug faster than everyone else
--   using `diffObjects` to write test expectations for database writes
 -   how to write code that's easy to review quickly
     -   `Readonly<string>` vs `readonly string[]`
     -   don't switch between inline if vs if blocks
