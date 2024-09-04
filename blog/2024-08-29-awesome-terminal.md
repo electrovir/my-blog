@@ -15,7 +15,7 @@ The tools we use as developers make us more effective (or at least hopefully fas
 
 I'll add, each main feature discussed below is independent of each other. Meaning, you can pick individual features to add to your terminal.
 
-Also, I use [Z Shell](https://en.wikipedia.org/wiki/Z_shell) so this post will specifically cover how to implement these features within that shell.
+Also, I use [Z Shell](https://en.wikipedia.org/wiki/Z_shell) so, except when noted, this post is specifically about Z shell implementations.
 
 ## Homebrew
 
@@ -216,48 +216,83 @@ Now Starship will automatically use the closest `starship.toml` in your current 
 
 This will automatically switch your terminal's Node.js version based on each directory's configuration. This makes switching between personal projects on the bleeding edge (using the latest Node.js version) to more stable work projects (requiring LTS Node.js versions) a breeze.
 
-1. make sure you have `nvm` installed: `nvm -v`
-    - if not, installation instructions are included here: https://github.com/nvm-sh/nvm?tab=readme-ov-file#install--update-script
-2. add a `.nvmrc` file that only contains the Node.js version to each repo that needs a custom Node.js version
-    - example: `.nvmrc` file with _only_ the contents `22`
-3. add the following code to your `~/.zshrc` file:
+1.  make sure you have `nvm` installed: `nvm -v`
+    -   if not, installation instructions are included here: https://github.com/nvm-sh/nvm?tab=readme-ov-file#install--update-script
+2.  add a `.nvmrc` file that only contains the Node.js version to each repo that needs a custom Node.js version
+    -   example: `.nvmrc` file with _only_ the contents `22`
+3.  add the following code to your `~/.zshrc` file:
     <details>
 
-    <summary>Click to expand `.zshrc`</summary>
+        <summary>Click to expand `.zshrc`</summary>
 
-    This adds a `cd` hook which will try to find an `.nvmrc` file and, if found, use nvm to switch to that Node.js version for the current shell session. This will also download the Node.js version if it is missing.
+        This adds a `cd` hook which will try to find an `.nvmrc` file and, if found, use nvm to switch to that Node.js version for the current shell session. This will also download the Node.js version if it is missing.
 
-    ```zsh
-    # these two lines are nvm init code which you may already have
-    # they must be _above_ the code below
-    export NVM_DIR="$HOME/.nvm"
-    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+        ```zsh
+        # these two lines are nvm init code which you may already have
+        # they must be _above_ the code below
+        export NVM_DIR="$HOME/.nvm"
+        [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
-    # place this after nvm initialization!
-    load-nvmrc() {
-        local node_version="$(nvm version)"
-        local nvmrc_path="$(nvm_find_nvmrc)"
+        # place this after nvm initialization!
+        load-nvmrc() {
+            local node_version="$(nvm version)"
+            local nvmrc_path="$(nvm_find_nvmrc)"
 
-        if [ -n "$nvmrc_path" ]; then
-            local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+            if [ -n "$nvmrc_path" ]; then
+                local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
 
-            if [ "$nvmrc_node_version" = "N/A" ]; then
-                nvm install
-            elif [ "$nvmrc_node_version" != "$node_version" ]; then
-                nvm use
+                if [ "$nvmrc_node_version" = "N/A" ]; then
+                    nvm install
+                elif [ "$nvmrc_node_version" != "$node_version" ]; then
+                    nvm use
+                fi
+            elif [ "$node_version" != "$(nvm version default)" ]; then
+                echo "Switching to default node version"
+                nvm use default
             fi
-        elif [ "$node_version" != "$(nvm version default)" ]; then
-            echo "Switching to default node version"
-            nvm use default
-        fi
-    }
-    add-zsh-hook chpwd load-nvmrc
-    load-nvmrc
-    ```
+        }
+        add-zsh-hook chpwd load-nvmrc
+        load-nvmrc
+        ```
 
-    </details>
+        </details>
 
 Now whenever you change directories, your terminal will automatically switch Node.js versions if necessary!
+
+<details>
+
+<summary>Click to expand the bash alternative</summary>
+
+This overrides the `cd` command so that it will try to find an `.nvmrc` file and, if found, use nvm to switch to that Node.js version for the current shell session. This will also download the Node.js version if it is missing. (Thanks to **[@KylerHansen](https://github.com/KylerHansen)** for finding this!)
+
+```bash
+load-nvmrc() {
+    echo "Attempting to switch node version"
+    local node_version="$(nvm version)"
+    local nvmrc_path="$(nvm_find_nvmrc)"
+
+    if [ -n "$nvmrc_path" ]; then
+        echo "Found .nvmrc file"
+        local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+
+        if [ "$nvmrc_node_version" = "N/A" ]; then
+            nvm install
+        elif [ "$nvmrc_node_version" != "$node_version" ]; then
+            nvm use
+        fi
+    elif [ "$node_version" != "$(nvm version default)" ]; then
+        echo "Switching to default node version"
+        nvm use default
+    fi
+}
+cd() {
+    load-nvmrc
+    builtin cd $@
+}
+load-nvmrc
+```
+
+</details>
 
 ## Better auto-complete and history
 

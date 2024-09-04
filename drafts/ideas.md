@@ -5,4 +5,6 @@
     -   `Readonly<string>` vs `readonly string[]`
     -   don't switch between inline if vs if blocks
     -   as much as possible, make code read vertically
+    -   always use semicolons otherwise `thing; (thing2 as any).doThing` gets weird
 -   use falsy defaults for optional boolean inputs
+-   how to properly phrase `describe` and `it` test descriptions
