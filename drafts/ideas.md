@@ -6,5 +6,9 @@
     -   don't switch between inline if vs if blocks
     -   as much as possible, make code read vertically
     -   always use semicolons otherwise `thing; (thing2 as any).doThing` gets weird
+    -   always use parentheses around callback args, like in `[].map((arg1) => {})`
 -   use falsy defaults for optional boolean inputs
 -   how to properly phrase `describe` and `it` test descriptions
+-   write code that is easier to refactor
+-   paraphrase https://semver.org
+    -   explain each prefix within npm context: https://github.com/npm/node-semver?tab=readme-ov-file#advanced-range-syntax
