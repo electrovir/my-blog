@@ -21,7 +21,7 @@ This is quick guide on the conventions for good commit messages and pull request
 -   Commit message bodies can have long form paragraphs, with whatever extra info or context is needed and helpful.
 -   To include ticket numbers (such as Jira ticket numbers or Git issue numbers) in the commit message, either list them last in the message title or push them off into the message body.
 
-Pull request title conventions follow the same conventions as the commit message _title_.
+Pull request title conventions follow the same conventions as the commit message _title_ with the exception that an issue or ticket number should always be appended when relevant, even if it runs the title a bit long.
 
 ## Examples
 
