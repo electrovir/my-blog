@@ -1,5 +1,5 @@
 ---
-title: Git Messages
+title: Git Commit Messages
 tags: [dev, git]
 ---
 
