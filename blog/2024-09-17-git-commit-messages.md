@@ -3,7 +3,7 @@ title: Git Commit Messages
 tags: [dev, git]
 ---
 
-This is quick guide on the conventions for good commit messages and pull request titles.
+Here are some quick conventions for good commit messages and pull request titles.
 
 <!-- truncate -->
 
