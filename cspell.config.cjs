@@ -16,6 +16,7 @@ module.exports = {
         'dsla',
         'infima',
         'kanban',
+        'Kyler',
         'libvorbis',
         'libvpx',
         'nerfed',

@@ -12,3 +12,4 @@
 -   write code that is easier to refactor
 -   paraphrase https://semver.org
     -   explain each prefix within npm context: https://github.com/npm/node-semver?tab=readme-ov-file#advanced-range-syntax
+-   how to write Node.js code that works on Windows

@@ -61,6 +61,7 @@ Here's how to set this up:
 
 After that, you can read up on how to customize Starship to your liking here: https://starship.rs/config/. I've included my own custom config below, which results in a prompt that looks like my above screenshot.
 
+<!-- cspell:disable -->
 <details>
 
 <summary>Click to expand `starship.toml`</summary>
@@ -171,6 +172,8 @@ style = "bg:0"
 
 </details>
 
+<!-- cspell:enable -->
+
 ### Per-dir Prompt Customization
 
 This will allow you to automatically switch your Starship config per directory. For example, I switch the main prompt color when in my work's repos vs in my personal repos.
@@ -183,6 +186,8 @@ This will allow you to automatically switch your Starship config per directory. 
     <summary>Click to expand `.zshrc`</summary>
 
     This adds a `cd` hook which will try to find and switch to, if found, a custom `starship.toml` file.
+
+    <!-- cspell:disable -->
 
     ```zsh
     autoload -U add-zsh-hook
@@ -208,6 +213,8 @@ This will allow you to automatically switch your Starship config per directory. 
     eval "$(starship init zsh)"
     ```
 
+    <!-- cspell:enable -->
+
     </details>
 
 Now Starship will automatically use the closest `starship.toml` in your current or parent directory! (Or default to your main config in `~/.config/starship.toml`.)
@@ -226,6 +233,8 @@ This will automatically switch your terminal's Node.js version based on each dir
         <summary>Click to expand `.zshrc`</summary>
 
         This adds a `cd` hook which will try to find an `.nvmrc` file and, if found, use nvm to switch to that Node.js version for the current shell session. This will also download the Node.js version if it is missing.
+
+        <!-- cspell:disable -->
 
         ```zsh
         # these two lines are nvm init code which you may already have
@@ -255,6 +264,8 @@ This will automatically switch your terminal's Node.js version based on each dir
         load-nvmrc
         ```
 
+        <!-- cspell:enable-->
+
         </details>
 
 Now whenever you change directories, your terminal will automatically switch Node.js versions if necessary!
@@ -264,6 +275,8 @@ Now whenever you change directories, your terminal will automatically switch Nod
 <summary>Click to expand the bash alternative</summary>
 
 This overrides the `cd` command so that it will try to find an `.nvmrc` file and, if found, use nvm to switch to that Node.js version for the current shell session. This will also download the Node.js version if it is missing. (Thanks to **[@KylerHansen](https://github.com/KylerHansen)** for finding this!)
+
+<!-- cspell:disable -->
 
 ```bash
 load-nvmrc() {
@@ -291,6 +304,8 @@ cd() {
 }
 load-nvmrc
 ```
+
+<!-- cspell:enable -->
 
 </details>
 
