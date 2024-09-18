@@ -20,6 +20,8 @@ Here are some quick conventions for good commit messages and pull request titles
 -   Commit message titles should be short and succinct but detailed enough to explain what the commit is doing.
 -   Commit message bodies can have long form paragraphs, with whatever extra info or context is needed and helpful.
 -   To include ticket numbers (such as Jira ticket numbers or Git issue numbers) in the commit message, either list them last in the message title or push them off into the message body.
+    -   A good way to include issue numbers in the body is with the ticket service name and then the ticket number: `\<service\>: \<ticket\>`
+    -   On GitHub, you can use [their specific keywords for linking commits to issues](https://docs.github.com/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword).
 
 Pull request title conventions follow the same conventions as the commit message _title_ with the exception that an issue or ticket number should always be appended when relevant, even if it runs the title a bit long.
 
