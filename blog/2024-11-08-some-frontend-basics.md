@@ -42,7 +42,7 @@ JWT stands for JSON Web Token. JWTs are simply chunks of JSON that have been enc
 
 ## CORS
 
-CORS stands for Cross-Origin Resource Sharing. It is a standard way for backends to restrict the browser URLs that can access them. Basically what happens is a backend sets various CORS related headers in a response and then browsers restrict or fail requests sent to tha backend based on those CORS headers. This is used by browsers to help prevent a variety of attacks, such as a fraudulent website designed to look like a legitimate website that sends requests to the legitimate backend.
+CORS stands for Cross-Origin Resource Sharing. It is a standard way for backends to restrict the browser URLs that can access them. Basically what happens is a backend sets various CORS related headers in a response and then browsers restrict or fail requests sent to that backend based on those CORS headers. This is used by browsers to help prevent a variety of attacks, such as a fraudulent website designed to look like a legitimate website that sends requests to the legitimate backend.
 
 Typically CORS causes annoyances in dev because you have remember to set them up in your backend or browsers will freak out and drop requests.
 
