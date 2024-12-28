@@ -4,6 +4,7 @@
 -   how to write code that's easy to review quickly
     -   `Readonly<string>` vs `readonly string[]`
     -   don't switch between inline if vs if blocks
+    -   don't pass in functions like `[].map(myFunction)`, use `[].map((entry) => myFunction(entry))` for consistency
     -   as much as possible, make code read vertically
     -   always use semicolons otherwise `thing;\n(thing2 as any).doThing` gets weird
     -   write code that is easier to refactor
@@ -12,3 +13,5 @@
 -   how to properly phrase `describe` and `it` test descriptions
 -   how to write Node.js code that works on Windows
 -   why toast notifications are bad
+-   don't wrap assertion functions in try-catch blocks to create check functions
+    -   performance issues in @augment-vir/assert
