@@ -16,3 +16,4 @@
 -   don't wrap assertion functions in try-catch blocks to create check functions
     -   performance issues in @augment-vir/assert
 -   don't use confusing CSS shorthands (like `flex`)
+-   never use `package.json`'s `exports` field
