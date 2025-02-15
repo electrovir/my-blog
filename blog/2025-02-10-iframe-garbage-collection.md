@@ -9,6 +9,7 @@ When you have an iframe loading an intense amount of content (like an entire vid
 
 Here are some ideas that didn't work:
 
+-   simply setting `src` to a new URL
 -   get a reference to the iframe, remove it from the DOM: `parent.querySelector('iframe').remove()`
     -   this only removes the element from the DOM but it keeps the iframe in memory still
 -   gate the `iframe` behind an `if` statement of some kind (such as a ternary, `renderIf` in element-vir, `ngIf` in Angular, etc.)
