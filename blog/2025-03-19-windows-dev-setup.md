@@ -11,19 +11,19 @@ A step-by-step guide on how to setup a fresh Windows 11 installation for web dev
 
 This is necessary so you download the correct apps.
 
-1. Open Settings > System > About
+1. Open Settings > System > About.
 2. Find "System Type". It'll likely either be "ARM" or "x86".
 
 # 2. Install the latest PowerShell
 
-1. Check your current version of PowerShell
-    1. Open "Windows Powershell" via the Start menu
-    2. Run `$PSVersionTable.PSVersion`
+1. Check your current version of PowerShell.
+    1. Open "Windows Powershell" via the Start menu.
+    2. Run `$PSVersionTable.PSVersion`.
 2. If your current version is already >= 7, skip to the next section as your PowerShell is already up to date.
 
     Windows does not ship with PowerShell 7, so unless you _know_ that you already upgraded, you are most likely on an outdated PowerShell.
 
-3. Go to https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows#installing-the-msi-package
+3. Go to https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows#installing-the-msi-package.
 4. Download the installer for your architecture.
 5. Run the installer.
 
@@ -31,14 +31,14 @@ This is necessary so you download the correct apps.
 
 1. Open "PowerShell 7" from the Start menu. (Do not open "Windows PowerShell".)
 2. Right click on the title bar of the terminal window.
-3. Go to Settings > PowerShell (not "Windows PowerShell")
-4. Change its name to "PowerShell 7" to avoid future confusion
-5. Go to Settings > Startup
-6. Change your "Default profile" to "PowerShell 7"
+3. Go to Settings > PowerShell (not "Windows PowerShell").
+4. Change its name to "PowerShell 7" to avoid future confusion.
+5. Go to Settings > Startup.
+6. Change your "Default profile" to "PowerShell 7".
 
 # 4. Install VS Code
 
-1. Go to https://code.visualstudio.com/download
+1. Go to https://code.visualstudio.com/download.
 2. Download the _User Installer_ for your architecture.
 3. Run the installer.
 4. If you see a "This User Installer is not meant to be run as an Administrator" warning, _do not ignore it_. Instead, follow the "Fix Administrator Access" section at the bottom of this guide.
@@ -47,20 +47,20 @@ This is necessary so you download the correct apps.
 
 I recommend using PowerShell for your CLI, _not_ the Git-Bash terminal. However, you still almost certainly need both git and bash installed.
 
-1. Go to https://git-scm.com/downloads/win
+1. Go to https://git-scm.com/downloads/win.
 2. Click the main download link ("Click here to download the latest").
 3. Run the installer.
 4. After it finishes, find the path to your bash installation.
-    1. Search for "Git Bash" in the Start menu and click "Open file location"
+    1. Search for "Git Bash" in the Start menu and click "Open file location".
     2. This will show you a shortcut file. Right click that shortcut and click "Open file location" (once again).
     3. Navigate to usr > bin within that Git folder.
     4. Copy your current path location. (It will probably look something like `C:\Users\<username>\AppData\Local\Programs\Git\usr\bin`.)
-5. Add bash to your PowerShell 7's `PATH`
-    1. Search for "Environment Variables" in the Start menu
-    2. Click "Edit the system environment variables" > "Environment Variables..." > Path > Edit > New
+5. Add bash to your PowerShell 7's `PATH`.
+    1. Search for "Environment Variables" in the Start menu.
+    2. Click "Edit the system environment variables" > "Environment Variables..." > Path > Edit > New.
     3. Paste in the `Git\usr\bin` path from step 4 and save it.
-6. Test that it worked
-    1. Open a _new_ PowerShell 7 terminal
+6. Test that it worked.
+    1. Open a _new_ PowerShell 7 terminal.
     2. Run `bash`. It should not throw an error.
     3. Run `git`. It should not throw an error.
 
@@ -90,18 +90,18 @@ I recommend using PowerShell for your CLI, _not_ the Git-Bash terminal. However,
 
 1. Download the nvm for Windows installer with the latest `nvm-setup.exe` file here: https://github.com/coreybutler/nvm-windows/releases.
 2. Run the installer as an administrator. Keep track of nvm's install path, noted in the installer.
-    1. If you're using a separate user as your administrator, change your nvm install path to somewhere within the _non-admin_ user's directory, like `C:\Users\<non-admin-user>\.nvm`. Likewise, change the Node.js install path: `C:\Users\<non-admin-user>\.node`
-3. Add nvm to your `PATH` variable
+    1. If you're using a separate user as your administrator, change your nvm install path to somewhere within the _non-admin_ user's directory, like `C:\Users\<non-admin-user>\.nvm`. Likewise, change the Node.js install path: `C:\Users\<non-admin-user>\.node`.
+3. Add nvm to your `PATH` variable.
     1. Search for "Environment Variables" in the Start menu.
     2. Click "Edit the system environment variables" > "Environment Variables..." > Path > Edit > New.
     3. Paste in the nvm install path.
 4. Open a new PowerShell 7 window.
-5. Run `nvm install <node-version`> (Like `nvm install 22`)
-6. After installation, find your new Node.js install path
+5. Run `nvm install <node-version`> (such as `nvm install 22`).
+6. After installation, find your new Node.js install path.
     1. Run `nvm root` to find the root nvm folder again.
     2. Navigate to this folder and find a folder corresponding to the Node.js version you just installed.
-    3. Copy that folder location (it'll likely look like `C:\Users\<username>\.nvm\v22.12.0`)
-7. Add the new Node.js install path to `PATH`
+    3. Copy that folder location (it'll likely look like `C:\Users\<username>\.nvm\v22.12.0`).
+7. Add the new Node.js install path to `PATH`.
     1. Search for "Environment Variables" in the Start menu.
     2. Click "Edit the system environment variables" > "Environment Variables..." > Path > Edit > New.
     3. Paste in the Node.js install path.
@@ -113,12 +113,12 @@ I recommend using PowerShell for your CLI, _not_ the Git-Bash terminal. However,
 
 Starship helps you [configure your shell prompt](https://electrovir.com/2024-08-29-awesome-terminal/#informative-and-personalized-prompt) and supports PowerShell.
 
-1. Download the latest `windows-msvc.msi` file for your architecture from https://github.com/starship/starship/releases
+1. Download the latest `windows-msvc.msi` file for your architecture from https://github.com/starship/starship/releases.
 2. Run the installer as an administrator.
 3. Add Starship to your profile.
-    1. Run `code $PROFILE`
-    2. Paste in `Invoke-Expression (&starship init powershell)`
-4. Create a config at `~\.config\starship.toml`
+    1. Run `code $PROFILE`.
+    2. Paste in `Invoke-Expression (&starship init powershell)`.
+4. Create a config at `~\.config\starship.toml`. (See my guide here for an example: https://electrovir.com/2024-08-29-awesome-terminal/#informative-and-personalized-prompt.)
 
 # Bonus Sections
 
@@ -128,8 +128,8 @@ In some situations Windows will run _every single app_ as an administrator, even
 
 ### Check administrator access
 
-1. Check if your Windows account is an administrator
-    1. Open Settings > Accounts > "Your info"
+1. Check if your Windows account is an administrator.
+    1. Open Settings > Accounts > "Your info".
     2. Check if your account says "Administrator" under your username. If it does, you're an administrator. If not, you're not.
 2. If you are not an administrator then something else is wrong and these workarounds won't help.
 
@@ -143,13 +143,14 @@ In some situations Windows will run _every single app_ as an administrator, even
 6. Click "Change account type".
 7. Change it to an administrator.
 8. Login to your new admin user.
-    1. Open Start
-    2. Click your username > the three dots in the top right > "Other users" > your new admin user
-    3. login
+    1. Open Start.
+    2. Click your username > the three dots in the top right > "Other users" > your new admin user.
+    3. login.
 9. Open Settings > Accounts > "Other users".
 10. Expand your original user.
 11. Change its account type to "Standard" (not an administrator).
-12. Login back in to your non administrator user. Do all dev work here.
+12. Login back in to your non administrator user.
+13. Do all dev work in this user.
 
 ### Solution 2: keep current admin user, create separate non-admin user
 
@@ -157,10 +158,10 @@ In some situations Windows will run _every single app_ as an administrator, even
 2. Follow `Solution 1`'s steps (above) until step 7, "Change it to an administrator."
 3. Instead, ensure that the new user is _not_ an administrator.
 4. Login to your new non-admin user.
-    1. Open Start
-    2. Click your username > the three dots in the top right > "Other users" > your new non-admin user
-    3. login
-5. Do all dev work here.
+    1. Open Start.
+    2. Click your username > the three dots in the top right > "Other users" > your new non-admin user.
+    3. login.
+5. Do all dev work in this user.
 
 ## Windows in a VM: extra steps
 
