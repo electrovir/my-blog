@@ -29,5 +29,13 @@ module.exports = {
         'transpiles',
         'webm',
         'webrtc',
+        'netsh',
+        'portproxy',
+        'listenaddress',
+        'listenport',
+        'connectaddress',
+        'connectport',
+        'msvc',
+        'taskkill',
     ],
 };

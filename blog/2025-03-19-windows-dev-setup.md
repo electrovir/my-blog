@@ -84,7 +84,7 @@ I recommend using PowerShell for your CLI, _not_ the Git-Bash terminal. However,
     1. Open your profile file with `code $PROFILE` (in PowerShell 7).
     2. Paste in `ssh-add C:\Users\<username>\.ssh\<your-key-name>` (or whatever the path is to the SSH key you just generated).
 7. Test your key with `ssh -T git@github.com`.
-    1. You should get a message like "Hi <username>! You've successfully authenticated."
+    1. You should get a message like "Hi username! You've successfully authenticated."
 
 # 7. Install Node.js and npm
 
