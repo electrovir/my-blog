@@ -110,6 +110,7 @@ I recommend using PowerShell for your CLI, _not_ the Git-Bash terminal. However,
 8. Open a new PowerShell 7 terminal.
 9. Verify that your Node.js installation is working.
     1. Run `node -v` and verify that it matches the version you just installed with nvm.
+10. Set your npm script shell to PowerShell: `npm config set script-shell pwsh`
 
 ## 8. Install Starship
 
@@ -123,6 +124,34 @@ Starship helps you [configure your shell prompt](https://electrovir.com/2024-08-
 4. Create a config at `~\.config\starship.toml`. (See my guide here for an example: https://electrovir.com/2024-08-29-awesome-terminal/#informative-and-personalized-prompt.)
 
 ## Bonus Sections
+
+### Remote SSH into Windows VM
+
+All of these commands will need to be run as an administrator.
+
+1. Install OpenSSH Server: `Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0`.
+2. Restart.
+3. Start the server with `Start-Service sshd` and check it with `Get-Service sshd`.
+4. Start the server automatically: `Set-Service -Name sshd -StartupType 'Automatic'`.
+5. Configure PowerShell 7 as the default shell: `New-ItemProperty -Path "HKLM:\SOFTWARE\OpenSSH" -Name DefaultShell -Value "C:\Program Files\PowerShell\7\pwsh.exe" -PropertyType String -Force`.
+6. Allow port 22: `netsh advfirewall firewall add rule name="Open SSH Port 22" dir=in action=allow protocol=TCP localport=22 remoteip=any`.
+7. Run `compmgmt.msc`.
+8. Open "Services and Applications" and right-click "WMI Control" > "Properties".
+9. Select the "Security" tab and click the "Security" button.
+10. In the "Security for Root" window that appears, click "Advanced".
+11. Click "Add". Click "Select a principal".
+12. Type "Remote Management Users" and click "Check Names" and then OK.
+13. Click "Applies to" and select "This namespace and subnamespaces".
+14. Check all permissions and click OK.
+15. Click OK out through all of the remaining dialogs.
+16. Add your user to the "Remote Management Users" group in the same `compmgmt.msc` window.
+    1. Click on "Local Users and Groups".
+    2. Open "Groups".
+    3. Open "Remote Management Users".
+    4. Click "Add...".
+    5. Type in your username (that'll be used for remote SSH)
+    6. Click "Check Names" and then OK.
+17. Restart the OpenSSH Server service (`Restart-Service sshd`).
 
 ### Disable WSL
 
