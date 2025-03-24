@@ -7,6 +7,8 @@ A step-by-step guide on how to setup a fresh Windows 11 installation for web dev
 
 <!-- truncate -->
 
+This guide assumes that you are not using WSL (I don't find it necessary to use WSL for web development).
+
 ## 1. Find your system architecture
 
 This is necessary so you download the correct apps.
@@ -121,6 +123,22 @@ Starship helps you [configure your shell prompt](https://electrovir.com/2024-08-
 4. Create a config at `~\.config\starship.toml`. (See my guide here for an example: https://electrovir.com/2024-08-29-awesome-terminal/#informative-and-personalized-prompt.)
 
 ## Bonus Sections
+
+### Disable WSL
+
+Running `bash` in PowerShell will sometimes invoke WSL instead of Git Bash. To disable WSL entirely do the following:
+
+1. Run `wsl --uninstall` in a PowerShell 7 terminal.
+2. Run "Control Panel" and navigate to Programs > "Programs and Features" > "Turn Windows features on or off"
+3. Uncheck "Windows Subsystem for Linux"
+4. Restart.
+
+### Using Git Bash `bash` instead of WSL
+
+To force PowerShell 7 to use Git Bash's bash instead of WSL, do the following:
+
+1. Open your profile file with `code $PROFILE` (in PowerShell 7).
+2. Add `Set-Alias -Name bash -Value "C:\Users\<username>\AppData\Local\Programs\Git\usr\bin\bash"`
 
 ### Fix administrator access
 
