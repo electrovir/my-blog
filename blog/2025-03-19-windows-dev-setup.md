@@ -7,14 +7,14 @@ A step-by-step guide on how to setup a fresh Windows 11 installation for web dev
 
 <!-- truncate -->
 
-# 1. Find your system architecture.
+## 1. Find your system architecture
 
 This is necessary so you download the correct apps.
 
 1. Open Settings > System > About.
 2. Find "System Type". It'll likely either be "ARM" or "x86".
 
-# 2. Install the latest PowerShell
+## 2. Install the latest PowerShell
 
 1. Check your current version of PowerShell.
     1. Open "Windows Powershell" via the Start menu.
@@ -27,7 +27,7 @@ This is necessary so you download the correct apps.
 4. Download the installer for your architecture.
 5. Run the installer.
 
-# 3. Setup a PowerShell 7 configuration
+## 3. Setup a PowerShell 7 configuration
 
 1. Open "PowerShell 7" from the Start menu. (Do not open "Windows PowerShell".)
 2. Right click on the title bar of the terminal window.
@@ -36,14 +36,14 @@ This is necessary so you download the correct apps.
 5. Go to Settings > Startup.
 6. Change your "Default profile" to "PowerShell 7".
 
-# 4. Install VS Code
+## 4. Install VS Code
 
 1. Go to https://code.visualstudio.com/download.
 2. Download the _User Installer_ for your architecture.
 3. Run the installer.
 4. If you see a "This User Installer is not meant to be run as an Administrator" warning, _do not ignore it_. Instead, follow the "Fix Administrator Access" section at the bottom of this guide.
 
-# 5. Install Git and Bash
+## 5. Install Git and Bash
 
 I recommend using PowerShell for your CLI, _not_ the Git-Bash terminal. However, you still almost certainly need both git and bash installed.
 
@@ -64,7 +64,7 @@ I recommend using PowerShell for your CLI, _not_ the Git-Bash terminal. However,
     2. Run `bash`. It should not throw an error.
     3. Run `git`. It should not throw an error.
 
-# 6. Setup SSH with GitHub
+## 6. Setup SSH with GitHub
 
 1. Configure OpenSSH to always run.
     1. Search for "Services" in the Start menu and click "Open file location".
@@ -86,7 +86,7 @@ I recommend using PowerShell for your CLI, _not_ the Git-Bash terminal. However,
 7. Test your key with `ssh -T git@github.com`.
     1. You should get a message like "Hi username! You've successfully authenticated."
 
-# 7. Install Node.js and npm
+## 7. Install Node.js and npm
 
 1. Download the nvm for Windows installer with the latest `nvm-setup.exe` file here: https://github.com/coreybutler/nvm-windows/releases.
 2. Run the installer as an administrator. Keep track of nvm's install path, noted in the installer.
@@ -109,7 +109,7 @@ I recommend using PowerShell for your CLI, _not_ the Git-Bash terminal. However,
 9. Verify that your Node.js installation is working.
     1. Run `node -v` and verify that it matches the version you just installed with nvm.
 
-# 8. Install Starship
+## 8. Install Starship
 
 Starship helps you [configure your shell prompt](https://electrovir.com/2024-08-29-awesome-terminal/#informative-and-personalized-prompt) and supports PowerShell.
 
@@ -120,20 +120,20 @@ Starship helps you [configure your shell prompt](https://electrovir.com/2024-08-
     2. Paste in `Invoke-Expression (&starship init powershell)`.
 4. Create a config at `~\.config\starship.toml`. (See my guide here for an example: https://electrovir.com/2024-08-29-awesome-terminal/#informative-and-personalized-prompt.)
 
-# Bonus Sections
+## Bonus Sections
 
-## Fix administrator access
+### Fix administrator access
 
 In some situations Windows will run _every single app_ as an administrator, even if you haven't clicked "Run as Administrator". This will cause tons of permissions headaches in the future. To fix this, you need to create a separate administrator user and separate dev user. Do all dev work in the dev user, only use the administrator user when absolutely necessary. There are 2 different ways of solving this, as noted below.
 
-### Check administrator access
+#### Check administrator access
 
 1. Check if your Windows account is an administrator.
     1. Open Settings > Accounts > "Your info".
     2. Check if your account says "Administrator" under your username. If it does, you're an administrator. If not, you're not.
 2. If you are not an administrator then something else is wrong and these workarounds won't help.
 
-### Solution 1: downgrade current user and create a separate admin user
+#### Solution 1: downgrade current user and create a separate admin user
 
 1. Open Settings > Accounts > "Other users" and click "Add Account".
 2. Click "I don't have this person's sign-in information".
@@ -152,7 +152,7 @@ In some situations Windows will run _every single app_ as an administrator, even
 12. Login back in to your non administrator user.
 13. Do all dev work in this user.
 
-### Solution 2: keep current admin user, create separate non-admin user
+#### Solution 2: keep current admin user, create separate non-admin user
 
 1. MAke sure you're currently logged-in to the administrator user.
 2. Follow `Solution 1`'s steps (above) until step 7, "Change it to an administrator."
@@ -163,7 +163,7 @@ In some situations Windows will run _every single app_ as an administrator, even
     3. login.
 5. Do all dev work in this user.
 
-## Windows in a VM: extra steps
+### Windows in a VM: extra steps
 
 Running Windows in a VM will require these extra steps if you're connecting to Docker containers _outside_ of the Windows VM (as some systems don't support nested virtualization and thus you can't run Docker inside of Windows inside of a VM).
 
@@ -183,6 +183,6 @@ Running Windows in a VM will require these extra steps if you're connecting to D
 
 2. Make sure your application code is connecting to the Docker container via `127.0.0.1` instead of `localhost`.
 
-## Killing services
+### Killing services
 
 Servers and services seem to have a hard time closing down on Windows. Fix this by running `taskkill /im node.exe /F` to kill all your Node.js processes.
