@@ -7,6 +7,8 @@ I noticed recently that running frontend Playwright tests on macOS via GitHub Ac
 
 <!-- truncate -->
 
+## Set Playwright Container
+
 Here is the Playwright image: https://mcr.microsoft.com/en-us/artifact/mar/playwright. This can then be used in GitHub Actions with the `container` job property: https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#jobsjob_idcontainer. With the latest version as of this writing, that would look like the following:
 
 ```yml
@@ -19,7 +21,30 @@ The trick is now to make sure this image is only used on the Ubuntu job since Wi
 container: ${{ matrix.os == 'ubuntu-latest' && 'mcr.microsoft.com/playwright:v1.52.0' || null }}
 ```
 
-Here's that line in the context of a GitHub Actions workflow file that tests macOS, Ubuntu, and Windows:
+## Handle Root path bug
+
+Sometimes with this setup, Firefox will fail to start and throw the following error:
+
+```
+╔═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Firefox is unable to launch if the $HOME folder isn't owned by the current user.                                  ║
+║ Workaround: Set the HOME=/root environment variable in your GitHub Actions workflow file when running Playwright. ║
+╚═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+```
+
+As the message suggests, we can work around that by setting `HOME=/root`:
+
+```yml
+- name: Set HOME for Ubuntu
+    if: runner.os == 'Linux'
+    run: echo "HOME=/root" >> $GITHUB_ENV
+```
+
+For more details see https://github.com/microsoft/playwright/issues/6500.
+
+## All Together
+
+Here's all of this in the context of a GitHub Actions workflow file that tests macOS, Ubuntu, and Windows:
 
 ```yml
 jobs:
@@ -30,8 +55,12 @@ jobs:
             fail-fast: false
             matrix:
                 os: [macos-latest, ubuntu-latest, windows-latest]
+        steps:
+            - name: Set HOME for Ubuntu
+              if: runner.os == 'Linux'
+              run: echo "HOME=/root" >> $GITHUB_ENV
 ```
 
-You can see the complete workflow file here: https://github.com/electrovir/shoot-mp/blob/b7a55c455418e0e34e445b699c034f5b77dab985/.github/workflows/tests.yml
+You can see a complete workflow file here: https://github.com/electrovir/shoot-mp/blob/62a839f44c1d835c9433ca19b82df77f2b37f8e4/.github/workflows/tests.yml
 
 In very small experiments, this saves about 1 minute in install time but then add about 30 seconds for setting up the container, for a final savings of **about 30 seconds**. I'll take it!
