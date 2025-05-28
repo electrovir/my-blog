@@ -34,4 +34,4 @@ jobs:
 
 You can see the complete workflow file here: https://github.com/electrovir/shoot-mp/blob/b7a55c455418e0e34e445b699c034f5b77dab985/.github/workflows/tests.yml
 
-In very small experiments, this only saves about 1 minute in install time but then add about 30 seconds for setting up the container, for a final savings of **about 30 seconds**. I'll take it!
+In very small experiments, this saves about 1 minute in install time but then add about 30 seconds for setting up the container, for a final savings of **about 30 seconds**. I'll take it!
