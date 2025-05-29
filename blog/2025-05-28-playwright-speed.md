@@ -26,13 +26,12 @@ container: ${{ matrix.os == 'ubuntu-latest' && 'mcr.microsoft.com/playwright:v1.
 Sometimes with this setup, Firefox will fail to start and throw the following error:
 
 ```
-╔═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
-║ Firefox is unable to launch if the $HOME folder isn't owned by the current user.                                  ║
-║ Workaround: Set the HOME=/root environment variable in your GitHub Actions workflow file when running Playwright. ║
-╚═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+Firefox is unable to launch if the $HOME folder isn't owned by the current user.
+Workaround: Set the HOME=/root environment variable in your GitHub Actions workflow file when running Playwright.
 ```
 
-As the message suggests, we can work around that by setting `HOME=/root`:
+As the message suggests, we can work around that by setting `HOME=/root`, but only on Linux (Ubuntu):
 
 ```yml
 - name: Set HOME for Ubuntu
