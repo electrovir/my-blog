@@ -17,3 +17,4 @@
     -   performance issues in @augment-vir/assert
 -   don't use confusing CSS shorthands (like `flex`)
 -   never use `package.json`'s `exports` field
+-   don't try to make a custom flexible table element, only make one for exactly locked down designs
