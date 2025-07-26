@@ -1,0 +1,34 @@
+diff --git a/node_modules/@cmfcmf/docusaurus-search-local/lib/server/parse.js b/node_modules/@cmfcmf/docusaurus-search-local/lib/server/parse.js
+index bf41fa2..3d2682d 100644
+--- a/node_modules/@cmfcmf/docusaurus-search-local/lib/server/parse.js
++++ b/node_modules/@cmfcmf/docusaurus-search-local/lib/server/parse.js
+@@ -109,7 +109,11 @@ function html2text(html, type, url = "?") {
+                 // <a class="hash-link" href="#first-header" title="Direct link to heading">#</a>
+                 .not("a[aria-hidden=true], a.hash-link")
+                 .text();
+-            const hash = $(heading).find("a.hash-link").attr("href") || "";
++            const hashHref = $(heading).find("a.hash-link").attr("href") || "";
++            // Extract just the hash fragment (e.g., from "/path#section" get "#section")
++            const hash = hashHref.includes("#") 
++                ? "#" + hashHref.split("#").pop() 
++                : hashHref;
+             let $sectionElements;
+             if ($(heading).parents(".markdown").length === 0) {
+                 // $(heading) is the page title
+diff --git a/node_modules/@cmfcmf/docusaurus-search-local/src/server/parse.ts b/node_modules/@cmfcmf/docusaurus-search-local/src/server/parse.ts
+index 1ccb6b0..9792f19 100644
+--- a/node_modules/@cmfcmf/docusaurus-search-local/src/server/parse.ts
++++ b/node_modules/@cmfcmf/docusaurus-search-local/src/server/parse.ts
+@@ -124,7 +124,11 @@ export function html2text(
+           // <a class="hash-link" href="#first-header" title="Direct link to heading">#</a>
+           .not("a[aria-hidden=true], a.hash-link")
+           .text();
+-        const hash = $(heading).find("a.hash-link").attr("href") || "";
++        const hashHref = $(heading).find("a.hash-link").attr("href") || "";
++        // Extract just the hash fragment (e.g., from "/path#section" get "#section")
++        const hash = hashHref.includes("#") 
++          ? "#" + hashHref.split("#").pop() 
++          : hashHref;
+ 
+         let $sectionElements;
+         if ($(heading).parents(".markdown").length === 0) {
