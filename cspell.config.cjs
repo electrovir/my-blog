@@ -21,6 +21,7 @@ module.exports = {
         'frontends',
         'HKLM',
         'infima',
+        'inputrc',
         'jwt',
         'kanban',
         'killall',
