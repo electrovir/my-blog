@@ -21,10 +21,15 @@
         "postinstall": "patch-package",
         "preview": "npm run build && docusaurus serve",
         "start": "docusaurus start",
-        "test:all": "concurrently --colors --kill-others-on-fail -c auto --names types,spelling,format,build \"npm run test:types\" \"npm run test:spelling\" \"npm run test:format\" \"npm run build\"",
+        "test:all": "runstorm --names types,spelling,format,build \"npm run test:types\" \"npm run test:spelling\" \"npm run test:format\" \"npm run build\"",
         "test:format": "virmator format check",
         "test:spelling": "virmator spellcheck",
         "test:types": "tsc --noEmit"
+    },
+    "overrides": {
+        "@cmfcmf/docusaurus-search-local": {
+            "@docusaurus/core": "3.4.0"
+        }
     },
     "dependencies": {
         "@cmfcmf/docusaurus-search-local": "1.2.0",
@@ -40,22 +45,18 @@
         "@docusaurus/module-type-aliases": "3.4.0",
         "@docusaurus/tsconfig": "3.4.0",
         "@docusaurus/types": "3.4.0",
-        "cspell": "^8.13.1",
+        "cspell": "^9.2.0",
         "npm-check-updates": "^17.0.3",
         "patch-package": "^8.0.0",
-        "prettier": "^3.3.3",
-        "prettier-plugin-interpolated-html-tags": "^1.0.5",
-        "prettier-plugin-jsdoc": "^1.3.0",
-        "prettier-plugin-multiline-arrays": "^3.0.6",
-        "prettier-plugin-organize-imports": "^4.0.0",
-        "prettier-plugin-packagejson": "^2.5.1",
-        "prettier-plugin-sort-json": "^4.0.0",
-        "prettier-plugin-toml": "^2.0.1",
-        "virmator": "^13.2.3"
-    },
-    "overrides": {
-        "@cmfcmf/docusaurus-search-local": {
-            "@docusaurus/core": "^3.1.0"
-        }
+        "prettier": "~3.3.3",
+        "prettier-plugin-interpolated-html-tags": "^2.0.1",
+        "prettier-plugin-jsdoc": "^1.3.3",
+        "prettier-plugin-multiline-arrays": "^4.0.3",
+        "prettier-plugin-organize-imports": "^4.2.0",
+        "prettier-plugin-packagejson": "^2.5.19",
+        "prettier-plugin-sort-json": "^4.1.1",
+        "prettier-plugin-toml": "^2.0.6",
+        "runstorm": "^0.6.1",
+        "virmator": "^14.0.1"
     }
 }
