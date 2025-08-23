@@ -36,7 +36,7 @@ git worktree add ../<branch-name>
 cd ../<branch-name>
 ```
 
-To create a new branch based on a remove branch:
+To create a new branch based on a remote branch:
 
 ```sh
 git worktree add ../<branch-name> -b <branch-name> --no-track origin/dev
