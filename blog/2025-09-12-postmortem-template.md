@@ -9,7 +9,7 @@ An idea for a postmortem template.
 
 ## Who, What, When
 
-A list of what the symptoms where, what happened, when they happened, and who was affected.
+A list of what the symptoms were, what happened, when they happened, and who was affected.
 
 ## Why
 
