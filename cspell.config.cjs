@@ -40,6 +40,7 @@ module.exports = {
         'remoteip',
         'subnamespaces',
         'taskkill',
+        'unstaging',
         'worktree',
         'worktrees',
     ],
