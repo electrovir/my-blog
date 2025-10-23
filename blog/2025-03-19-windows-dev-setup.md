@@ -201,7 +201,7 @@ In some situations Windows will run _every single app_ as an administrator, even
 
 #### Solution 2: keep current admin user, create separate non-admin user
 
-1. MAke sure you're currently logged-in to the administrator user.
+1. Make sure you're currently logged-in to the administrator user.
 2. Follow `Solution 1`'s steps (above) until step 7, "Change it to an administrator."
 3. Instead, ensure that the new user is _not_ an administrator.
 4. Login to your new non-admin user.
