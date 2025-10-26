@@ -16,9 +16,9 @@
         "url": "https://github.com/electrovir"
     },
     "scripts": {
-        "build": "docusaurus build",
+        "build": "npm run init && docusaurus build",
         "format": "virmator format",
-        "postinstall": "patch-package",
+        "init": "patch-package",
         "preview": "npm run build && docusaurus serve",
         "start": "docusaurus start",
         "test:all": "runstorm --names types,spelling,format,build \"npm run test:types\" \"npm run test:spelling\" \"npm run test:format\" \"npm run build\"",
