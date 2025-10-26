@@ -78,3 +78,4 @@ Setup SSH, auth, and firewall.
 
 1. `npm i -g @electrovir/basic-server`
 2. `basic-server 3000`
+3. [Use tmux](./2025-01-01-T01-ssh-process) if you want to keep the server running.
