@@ -6,6 +6,13 @@ export const ncuConfig: RunOptions = {
     // exclude these
     reject: [
         ...baseNcuConfig.reject,
+        'clsx',
+        '@mdx-js/react',
+        '@docusaurus/*',
+        '@cmfcmf/*',
+        'prism-react-renderer',
+        'react',
+        'react-dom',
     ],
     // include only these
     filter: [],
