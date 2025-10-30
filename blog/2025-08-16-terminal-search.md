@@ -3,7 +3,9 @@ title: Enable up-arrow history auto-complete
 tags: [dev, CLI]
 ---
 
-This is really simple:
+This how to enable up/down arrow auto-complete navigation instead of basic history navigation, without installing plugins.
+
+## Bash
 
 ```sh
 nano ~/.inputrc
@@ -20,4 +22,18 @@ Run:
 
 ```sh
 bind -f ~/.inputrc
+```
+
+## Zsh
+
+Put the following into your `~/.zshrc`:
+
+<!-- cspell:word: bindkey -->
+
+```
+autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey '^[[A' up-line-or-beginning-search     # Up arrow
+bindkey '^[[B' down-line-or-beginning-search   # Down arrow
 ```
