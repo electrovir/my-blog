@@ -15,7 +15,7 @@ Setup SSH, auth, and firewall.
 2. [Setup an SSH key.](./2025-10-24-ssh-key)
 3. Create a non-root user: `adduser <username>` and fill in the details
 4. Allow your new user to use `sudo`: `usermod -aG sudo <username>`
-5. Add your ssh key to the new user's authorized keys file: `/home/<username>/.ssh/authorized_keys` (you will need to make the folder first with `mkdir /home/<username>/.ssh`).
+5. Add your ssh key's `.pub` part to the new user's authorized keys file: `/home/<username>/.ssh/authorized_keys` (you will need to make the folder first with `mkdir /home/<username>/.ssh`).
 6. Make sure your new user owns it: `chown -R <username>:<username> /home/<username>/.ssh`
 7. Setup a firewall
     1. `apt update`
