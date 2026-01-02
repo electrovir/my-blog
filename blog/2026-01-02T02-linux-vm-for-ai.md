@@ -3,7 +3,7 @@ title: Setting up a Linux VM for AI
 tags: [dev, macOS, Linux]
 ---
 
-How I setup a Linux VM for an AI CLI to go crazy in (without risk to my host system).
+How to setup a Linux VM for an AI CLI to go crazy in (without risk to your host system).
 
 <!-- truncate -->
 
