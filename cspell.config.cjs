@@ -34,6 +34,7 @@ module.exports = {
         'nerfed',
         'nerfing',
         'netsh',
+        'npmjs',
         'portproxy',
         'precmd',
         'prereleases',
