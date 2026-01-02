@@ -68,3 +68,11 @@ I'm on macOS and already use [UTM](https://mac.getutm.app), so I'm using UTM to 
     5. Login with `/login`.
     6. Select a model with `/model`
     7. See https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli for more tips
+6. Give Copilot permissions by adding the following to your `~/.bashrc` file:
+    ```sh
+    alias copilot="copilot --allow-tool write --allow-tool shell --deny-tool 'shell(rm)' --deny-tool 'shell(git push)'"
+    ```
+7. Make sure to also increase your Node.js memory by also adding this to your `~/.bashrc` file:
+    ```
+    export NODE_OPTIONS="--max-old-space-size=12288"
+    ```
