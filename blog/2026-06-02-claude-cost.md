@@ -3,9 +3,11 @@ title: Track Claude CLI Cost
 tags: [dev, cli, ai]
 ---
 
+<!-- cspell:words statusline, argjson, Iseconds -->
+
 A quick guide on how to track session cost with a Claude hook. This will both keep a running cost counter below your Claude CLI and persist session costs to `~/.claude/cost/`.
 
-<!-- cspell:words statusline -->
+<!-- truncate -->
 
 1. Create a shell script for the hook. I saved mine at `~/.claude/statusline.sh`:
 
