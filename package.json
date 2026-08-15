@@ -30,7 +30,7 @@
         "test:spelling": "virmator spellcheck"
     },
     "dependencies": {
-        "blog-vir": "^0.0.7",
+        "blog-vir": "^0.0.8",
         "element-vir": "^26.17.3",
         "vira": "^31.31.0"
     },
