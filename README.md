@@ -2,9 +2,9 @@
 
 https://electrovir.com
 
-Generated with [docusaurus](https://docusaurus.io/docs).
+Generated with [blog-vir](https://www.npmjs.com/package/blog-vir).
 
 ## dev
 
--   `npm start`: run the docusaurus local dev server
--
+-   `npm start`: run the local dev server
+-   `npm build`: build the static assets

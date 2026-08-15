@@ -1,3 +1,0 @@
-/resume      resume/                                             200!
-/resume/     https://electrovir-resume.netlify.app               200!
-/resume/*    https://electrovir-resume.netlify.app/:splat        200!

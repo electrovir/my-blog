@@ -1,0 +1,20 @@
+---
+title: Running a TypeScript worker in Node.js
+tags: [dev, nodejs, tip, typescript, worker-threads]
+---
+
+It's really hard to get `new Worker()` from `node:worker_threads` to work when running code via `tsx`. I finally got an example working. Here's how to do it:
+
+```TypeScript
+import {Worker} from 'node:worker_threads';
+
+const workerPath = import.meta.resolve('./sample-worker.js');
+const worker = import.meta.filename.endsWith('.ts')
+    ? new Worker(
+          `import('tsx/esm/api').then(({ register }) => { register(); import('${workerPath}') })`,
+          {
+              eval: true,
+          },
+      )
+    : new Worker(workerPath);
+```

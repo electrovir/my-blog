@@ -1,0 +1,15 @@
+@import url('/fonts/lexend-definitions.css');
+@import url('/fonts/inconsolata-definitions.css');
+
+:root {
+    color-scheme: light dark;
+    font-family: 'Lexend', sans-serif;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}

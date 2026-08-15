@@ -4,9 +4,9 @@ module.exports = {
     ...baseConfig,
     ignorePaths: [
         ...baseConfig.ignorePaths,
-        '.docusaurus/',
         '*.svg',
-        'build/',
+        'www-static/blog-content/',
+        'www-static/rss.xml',
     ],
     words: [
         ...baseConfig.words,

@@ -11,4 +11,5 @@
 **/tsconfig.tsbuildinfo
 /Icon?
 
-build/
+www-static/blog-content/
+www-static/rss.xml

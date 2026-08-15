@@ -1,4 +1,4 @@
-import {baseNcuConfig} from '@virmator/deps/configs/ncu.config.base';
+import {baseNcuConfig} from '@virmator/deps/configs/ncu.config.base.js';
 import {RunOptions} from 'npm-check-updates';
 
 export const ncuConfig: RunOptions = {
@@ -6,13 +6,6 @@ export const ncuConfig: RunOptions = {
     // exclude these
     reject: [
         ...baseNcuConfig.reject,
-        'clsx',
-        '@mdx-js/react',
-        '@docusaurus/*',
-        '@cmfcmf/*',
-        'prism-react-renderer',
-        'react',
-        'react-dom',
     ],
     // include only these
     filter: [],

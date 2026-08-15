@@ -12,5 +12,5 @@ graphics/
 node_modules/
 tsconfig.tsbuildinfo
 
-.docusaurus
-build
+www-static/blog-content/
+www-static/rss.xml
