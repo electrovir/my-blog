@@ -14,7 +14,7 @@ This guide assumes that you are not using WSL (I don't find it necessary to use 
 This is necessary so you download the correct apps.
 
 1. Open Settings > System > About.
-2. Find "System Type". It'll likely either be "ARM" or "x86".
+2. Find "System Type". It'll likely either be "ARM" or "x64".
 
 ## 2. Install the latest PowerShell
 
