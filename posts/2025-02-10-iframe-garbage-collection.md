@@ -1,6 +1,6 @@
 ---
 title: Iframe Garbage Collection
-tags: [browser, dev, tip, web]
+tags: [dev, frontend, tip, web]
 ---
 
 When you have an iframe loading an intense amount of content (like an entire video game, in the case of https://playfeed.io), and you need you need to reuse that iframe, you need to force the iframe to free up its memory usage so the browser will garbage collect it.

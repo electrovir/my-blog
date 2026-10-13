@@ -1,6 +1,6 @@
 ---
 title: SoundSource freezing
-tags: [automation, cron, macos, shell]
+tags: [cron, macos, shell]
 ---
 
 I can't use macOS anymore without [SoundSource](https://rogueamoeba.com/soundsource/). However, it frequently freezes, hangs, crashes, etc. This requires a not-too-lengthy but still annoying manual flow of opening up Activity Monitor to force kill it, then opening it again. So I made it easier and automated.

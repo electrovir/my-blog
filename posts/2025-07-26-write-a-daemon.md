@@ -1,6 +1,6 @@
 ---
 title: Write a Daemon
-tags: [dev, linux, process-management, systemd]
+tags: [dev, linux, process-management]
 ---
 
 It's super easy to write your own daemon, so here's how.

@@ -1,6 +1,6 @@
 ---
 title: How to Sign and Trust Your Own SSL Certificates
-tags: [ssl, cli, dev, macos, security, web]
+tags: [certificates, cli, dev, macos, security, web]
 ---
 
 How to create your own root SSL certificate, get your devices to trust it, then sign your own SSL certificates (specifically for LAN HTTPS purposes).

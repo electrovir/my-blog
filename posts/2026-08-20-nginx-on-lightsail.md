@@ -1,6 +1,6 @@
 ---
 title: Setting up Node.js server with Nginx on Lightsail
-tags: [dev, web, aws, guide, node-js]
+tags: [aws, deploy, dev, guide, nginx, nodejs, web]
 ---
 
 How to setup a bare bones Nginx server with HTTPS and reverse proxy on Lightsail.

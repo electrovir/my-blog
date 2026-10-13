@@ -1,6 +1,6 @@
 ---
 title: Per-Dir API keys
-tags: [cli, direnv, guide, security, worktrees]
+tags: [cli, guide, security, shell, direnv, worktrees]
 ---
 
 How to easily setup per directory API keys to, for example, scope different AI subscriptions in different folders. This will use the CLI `direnv` to accomplish that.

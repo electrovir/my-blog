@@ -1,6 +1,6 @@
 ---
 title: How to Reset a 7th Generation iPod Touch
-tags: [hardware]
+tags: [guide, tip, hardware]
 ---
 
 Nearly all guides online explain how to reset an iPod Touch incorrectly for the 7th generation. Here's the correct way. While Apple documents this themselves, it was surprisingly difficult to track down, so I'm reiterating it here in case someone (like myself) needs it again.

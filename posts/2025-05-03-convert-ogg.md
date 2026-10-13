@@ -1,6 +1,6 @@
 ---
 title: Recursively convert OGG to MP3
-tags: [audio, cli, dev, ffmpeg, tip]
+tags: [cli, dev, ffmpeg, media, audio, tip]
 ---
 
 This command will recursively find all OGG files in the currently directory and nested directories and convert them to MP3.

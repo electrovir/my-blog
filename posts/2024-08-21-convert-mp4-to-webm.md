@@ -1,6 +1,6 @@
 ---
 title: Convert H.264 MP4 to WebM
-tags: [cli, dev, ffmpeg, video]
+tags: [cli, dev, ffmpeg, media, video]
 ---
 
 ```shell

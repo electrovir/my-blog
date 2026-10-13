@@ -1,6 +1,6 @@
 ---
 title: Track Claude CLI Cost
-tags: [ai, claude, cli, dev]
+tags: [ai, cli, dev]
 ---
 
 <!-- cspell:words statusline, argjson, Iseconds -->

@@ -1,6 +1,6 @@
 ---
 title: Some Frontend Basics
-tags: [auth, dev, frontend, javascript, web]
+tags: [dev, frontend, javascript, security, web]
 ---
 
 -   Authentication through the authorization header, cookies, and JWTs.

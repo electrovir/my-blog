@@ -1,6 +1,6 @@
 ---
 title: Code Coverage Ignore Comments
-tags: [dev, javascript, nodejs, testing, web]
+tags: [comments, dev, javascript, nodejs, testing, web]
 ---
 
 [c8](https://www.npmjs.com/package/c8) is my preferred package for calculating code coverage in Node.js testing and it is also apparently used by [web-test-runner](https://modern-web.dev/docs/test-runner/writing-tests/code-coverage/#writing-tests-code-coverage). However, c8 supports a lot more ignore comments then [they document](https://www.npmjs.com/package/c8#ignoring-uncovered-lines-functions-and-blocks). Below I've listed all the supported comments from my own personal testing and some other notes about ignoring lines for code coverage.
