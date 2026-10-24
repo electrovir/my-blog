@@ -56,6 +56,8 @@ Setup SSH, auth, and firewall.
         }
         ```
 
+    3. Note that `3000` is the port your local server is expected to listen to. Change that to whatever you want!
+
 6. Enable the server block: `sudo ln -s /etc/nginx/sites-available/<site-name> /etc/nginx/sites-enabled/<site-name>`
 7. Disable the default server block: `sudo rm /etc/nginx/sites-enabled/default`
 8. Verify that your config is valid: `sudo nginx -t`
