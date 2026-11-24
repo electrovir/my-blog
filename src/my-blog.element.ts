@@ -7,7 +7,7 @@ export const MyBlog = defineElement()({
     styles: css`
         :host {
             display: block;
-            font-family: 'Lexend', sans-serif;
+            font-family: 'Atkinson Hyperlegible Next', sans-serif;
             min-height: 100vh;
         }
 
