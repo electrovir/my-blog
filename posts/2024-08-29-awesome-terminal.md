@@ -92,82 +92,82 @@ $character\
 
 [cmd_duration]
 min_time = 0
-format = "[$duration]($style) "
-style = "bg:0 226"
+format = '[$duration]($style) '
+style = 'bg:0 226'
 
 [time]
 disabled = false
-format = "[$time]($style) "
-style = "bg:0 51"
-time_format = "%Y-%m-%d %T"
+format = '[$time]($style) '
+style = 'bg:0 51'
+time_format = '%Y-%m-%d %T'
 
 [status]
-success_symbol = " "
-format = "[$int]($style) "
+success_symbol = ' '
+format = '[$int]($style) '
 disabled = false
-style = "bg:0 bold 207"
+style = 'bg:0 bold 207'
 
 [directory]
-style = "bg:0 51"
+style = 'bg:0 51'
 truncate_to_repo = false
 truncation_length = 20
-truncation_symbol = "…/"
+truncation_symbol = '…/'
 
 [git_branch]
-symbol = " "
-format = "[$symbol$branch]($style)"
-style = "bg:0 51"
+symbol = ' '
+format = '[$symbol$branch]($style)'
+style = 'bg:0 51'
 
 [git_status]
-conflicted = "*"
-ahead = ""
-behind = ""
-diverged = ""
-up_to_date = ""
-untracked = "*"
-stashed = ""
-modified = "*"
-staged = "*"
-renamed = "*"
-deleted = "*"
-format = "[$all_status]($style) "
-style = "bg:0 51"
+conflicted = '*'
+ahead = ''
+behind = ''
+diverged = ''
+up_to_date = ''
+untracked = '*'
+stashed = ''
+modified = '*'
+staged = '*'
+renamed = '*'
+deleted = '*'
+format = '[$all_status]($style) '
+style = 'bg:0 51'
 
 [character]
 success_symbol = "[\\$](34)"
 error_symbol = "[\\$](196)"
 
 [git_state]
-style = "bg:0 bold 207"
+style = 'bg:0 bold 207'
 format = "[$state \\($progress_current/$progress_total\\)]($style)"
 
 [username]
 show_always = true
-format = "[ $user]($style)"
-style_user = "bg:0 39"
-style_root = "bg:0 bold 207"
+format = '[ $user]($style)'
+style_user = 'bg:0 39'
+style_root = 'bg:0 bold 207'
 
 [hostname]
-format = "[@$hostname]($style) "
-trim_at = "."
+format = '[@$hostname]($style) '
+trim_at = '.'
 # I set a different color here for each host
-style = "bg:0 39"
+style = 'bg:0 39'
 ssh_only = false
 
 [localip]
 ssh_only = false
 disabled = false
-style = "bg:0 39"
+style = 'bg:0 39'
 
 [sudo]
-format = "[$symbol]($style)"
-symbol = " "
+format = '[$symbol]($style)'
+symbol = ' '
 disabled = false
-style = "bg:0 207"
+style = 'bg:0 207'
 
 [fill]
-symbol = " "
-style = "bg:0"
+symbol = ' '
+style = 'bg:0'
 ```
 
 </details>

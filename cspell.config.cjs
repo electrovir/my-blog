@@ -22,6 +22,7 @@ module.exports = {
         'dsla',
         'envrc',
         'HKLM',
+        'hyperlegible',
         'infima',
         'inputrc',
         'kanban',

@@ -1,6 +1,6 @@
 import {VirBlog} from 'blog-vir/dist/ui/elements/vir-blog.element.js';
 import {css, defineElement, html} from 'element-vir';
-import {createSizedIcon, lucideIcons, ViraIcon, ViraLink} from 'vira';
+import {LucideExternalLinkIcon, ViraIcon, ViraLink} from 'vira';
 
 export const MyBlog = defineElement()({
     tagName: 'my-blog',
@@ -50,7 +50,7 @@ export const MyBlog = defineElement()({
                 <div class="github-link">
                     <!-- prettier-ignore -->
                     GitHub<${ViraIcon.assign({
-                        icon: createSizedIcon(lucideIcons.ExternalLink, 16),
+                        icon: LucideExternalLinkIcon,
                     })}></${ViraIcon}>
                     </div>
                 </${ViraLink}>

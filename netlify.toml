@@ -1,7 +1,7 @@
 [build]
-command = "npm run build"
-publish = "dist"
+command = 'npm run build'
+publish = 'dist'
 
 [build.environment]
-NODE_VERSION = "24"
-NPM_VERSION = "11.17.0"
+NODE_VERSION = '24'
+NPM_VERSION = '11.17.0'

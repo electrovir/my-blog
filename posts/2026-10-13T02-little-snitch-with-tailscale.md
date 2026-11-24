@@ -5,6 +5,8 @@ tags: [firewall, macos, security, tip]
 
 How to use Little Snitch with DNS encryption and Tailscale MagicDNS:
 
+<!-- cspell:words tailnet -->
+
 1. Find your "Tailnet DNS name" at https://console.tailscale.com/admin/dns. It should look something like `tail<some-id>.ts.net`.
 2. Open Little Snitch > Settings > DNS
 3. Click "Add Exception..." or the `+` under "DNS Encryption Exceptions"
