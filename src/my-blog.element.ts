@@ -28,8 +28,13 @@ export const MyBlog = defineElement()({
         }
 
         .github-link {
+            align-items: center;
             display: flex;
             gap: 2px;
+
+            & span {
+                text-box: trim-both cap alphabetic;
+            }
         }
     `,
     render() {
@@ -49,7 +54,7 @@ export const MyBlog = defineElement()({
                 >
                 <div class="github-link">
                     <!-- prettier-ignore -->
-                    GitHub<${ViraIcon.assign({
+                    <span>GitHub</span><${ViraIcon.assign({
                         icon: LucideExternalLinkIcon,
                     })}></${ViraIcon}>
                     </div>
